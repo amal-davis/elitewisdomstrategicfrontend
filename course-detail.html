@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="course-detail.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="ew-header">
+    <nav class="navbar ew-navbar navbar-dark navbar-expand-lg">
+      <div class="container">
+
+        <!-- Left: Logo -->
+        <a href="#" class="ew-logo">
+          <img src="logo.png"
+               alt="Elite Wisdom Strategic Group"
+               class="ew-logo-img">
+        </a>
+
+        <!-- Desktop Nav Links (one line) -->
+        <ul class="navbar-nav ew-nav-links ms-4 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- Right: Utilities + Mobile Menu Button -->
+        <div class="ew-utilities">
+          <!-- Language (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Language selector">
+            <button type="button" class="active" data-lang="en">
+              EN
+            </button>
+            <button type="button" data-lang="ml">
+              ML
+            </button>
+          </div>
+
+          <!-- Location (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Location selector">
+            <button type="button" class="active" data-location="uae">
+              <span class="flag">🇦🇪</span> UAE
+            </button>
+            <button type="button" data-location="india">
+              <span class="flag">🇮🇳</span> India
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="ew-menu-btn d-lg-none" type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#ewOffcanvas"
+                  aria-controls="ewOffcanvas">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE OFFCANVAS MENU ================= -->
+  <div class="offcanvas offcanvas-start ew-offcanvas" tabindex="-1" id="ewOffcanvas">
+    <div class="offcanvas-header">
+      <div>
+        <div class="offcanvas-title">Elite Wisdom</div>
+        <small class="text-secondary">Strategic Group</small>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Nav links -->
+      <ul class="navbar-nav mb-3">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+      </ul>
+
+      <hr class="border-secondary-subtle">
+
+      <!-- Language (Mobile) -->
+      <div class="mb-3">
+        <div class="section-label">Language</div>
+        <div class="ew-pill-toggle w-100" aria-label="Language selector mobile">
+          <button type="button" class="active flex-fill" data-lang="en">
+            English
+          </button>
+          <button type="button" class="flex-fill" data-lang="ml">
+            Malayalam
+          </button>
+        </div>
+      </div>
+
+      <!-- Location (Mobile) -->
+      <div>
+        <div class="section-label">Location</div>
+        <div class="ew-pill-toggle w-100" aria-label="Location selector mobile">
+          <button type="button" class="active flex-fill" data-location="uae">
+            <span class="flag">🇦🇪</span> UAE
+          </button>
+          <button type="button" class="flex-fill" data-location="india">
+            <span class="flag">🇮🇳</span> India
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="course-hero">
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col-lg-8">
+
+          <h1 class="reveal-on-scroll">Dream Performance Marketing <span style="color:#3d74ff;">Masterclass</span></h1>
+
+          <div class="course-level reveal-on-scroll">
+            Level: Intermediate to Advanced
+          </div>
+
+          <div class="mt-3 reveal-on-scroll">
+            Stop guessing. Master the exact frameworks used to manage $50M+ in ad spend.
+            Build, scale, and optimize campaigns with clarity and confidence.
+          </div>
+
+          <div class="course-author reveal-on-scroll">
+            <span>Created by:</span> <strong>Apoorv Singh</strong>
+          </div>
+
+          <div class="course-meta reveal-on-scroll">
+            <div><i class="bi bi-calendar-check"></i> Updated Dec 2025</div>
+            <div><i class="bi bi-translate"></i> English</div>
+          </div>
+
+          <div class="course-price reveal-on-scroll">₹ 19,999</div>
+
+        </div>
+
+        <!-- RIGHT sticky card -->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="buy-box reveal-on-scroll">
+            <div class="buy-thumb">
+              <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg" alt="">
+            </div>
+            <p class="buy-price">₹ 19,999</p>
+            <button class="btn-buy">
+              Buy Now <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OVERLAP INFO ROW ================= -->
+  <section class="mt-4 course-info-boxes">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="info-box reveal-on-scroll">
+            <div class="d-flex align-items-center mb-2">
+              <div class="info-icon"><i class="bi bi-patch-check-fill"></i></div>
+              <div class="info-title">Fully Updated Curriculum</div>
+            </div>
+            <div class="info-sub">Suitable for Intermediate to Advanced professionals.</div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-box reveal-on-scroll">
+            <div class="d-flex align-items-center mb-2">
+              <div class="info-icon"><i class="bi bi-star-fill"></i></div>
+              <div class="info-title">Rating: 4.8</div>
+            </div>
+            <div class="info-sub"><a href="#" class="text-decoration-none">See Reviews</a></div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-box reveal-on-scroll">
+            <div class="d-flex align-items-center mb-2">
+              <div class="info-icon"><i class="bi bi-people-fill"></i></div>
+              <div class="info-title">10,000+ Marketers Trained</div>
+            </div>
+            <div class="info-sub">Across UAE, India, Europe & Asia.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DESCRIPTION ================= -->
+  <section class="mt-4 mb-5">
+    <div class="container">
+      <h3 class="section-title reveal-on-scroll">What <span style="color:#3d74ff;">You’ll Learn</span></h3>
+
+      <ul class="learn-list">
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Master the 4-step creative framework for thumb-stopping ads.</li>
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Build evergreen campaign structures that scale globally.</li>
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Decode analytics, tracking, and performance diagnosis.</li>
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Design dashboards CMOs & founders care about.</li>
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Implement the 7-step performance marketing framework.</li>
+        <li class="reveal-on-scroll"><i class="bi bi-check-circle-fill"></i> Leverage AI for SOPs & planning automation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= RELATED TOPICS ================= -->
+  <section class="course-related">
+    <div class="container">
+
+      <h3 class="course-related-title reveal-on-scroll">
+        Explore <span>Related Topics</span>
+      </h3>
+
+      <div class="course-related-chips reveal-on-scroll">
+        <button class="related-chip">Google Ads</button>
+        <button class="related-chip">Full Stack</button>
+        <button class="related-chip">Performance Marketing</button>
+        <button class="related-chip">Growth Strategy</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= COURSE INCLUDES ================= -->
+  <section class="course-includes">
+    <div class="container">
+
+      <h3 class="course-includes-title reveal-on-scroll">
+        This <span>Course Includes</span>:
+      </h3>
+
+      <div class="course-includes-card reveal-on-scroll">
+        <div class="course-includes-list">
+
+          <!-- Left column items -->
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-play-btn-fill"></i>
+            </div>
+            <div class="ci-text">
+              Up to <strong>15 hours</strong> of HD video lessons
+            </div>
+          </div>
+
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            </div>
+            <div class="ci-text">
+              <strong>5+ downloadable</strong> frameworks, templates &amp; SOPs
+            </div>
+          </div>
+
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-collection-play-fill"></i>
+            </div>
+            <div class="ci-text">
+              Winning ad &amp; creative swipe files
+            </div>
+          </div>
+
+          <!-- Right column items -->
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <div class="ci-text">
+              Certificate of completion
+            </div>
+          </div>
+
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-phone"></i>
+            </div>
+            <div class="ci-text">
+              Access on <strong>mobile, tablet &amp; desktop</strong>
+            </div>
+          </div>
+
+          <div class="course-include-item reveal-on-scroll">
+            <div class="ci-icon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="ci-text">
+              <strong>12 months</strong> access &amp; future updates
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= COURSE MODULES ================= -->
+  <section class="course-modules" id="course-modules">
+    <div class="container">
+
+      <h3 class="cm-title reveal-on-scroll">
+        Course <span>Modules</span>
+      </h3>
+
+      <div class="accordion cm-accordion" id="courseModulesAcc">
+
+        <!-- Module 1 -->
+        <div class="accordion-item module-item reveal-on-scroll">
+          <h2 class="accordion-header" id="mod1Heading">
+            <button class="accordion-button cm-accordion-btn collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mod1"
+                    aria-expanded="false"
+                    aria-controls="mod1">
+              <span class="cm-number">Module 1</span>
+              <span class="cm-title-text">The New Age of Performance Marketing</span>
+            </button>
+          </h2>
+          <div id="mod1"
+               class="accordion-collapse collapse"
+               aria-labelledby="mod1Heading"
+               data-bs-parent="#courseModulesAcc">
+            <div class="accordion-body cm-body">
+              <ul class="cm-list">
+                <li>What has changed in the digital marketing landscape.</li>
+                <li>Key performance metrics and how to read them correctly.</li>
+                <li>Overview of the framework you’ll be using in this course.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="accordion-item module-item reveal-on-scroll">
+          <h2 class="accordion-header" id="mod2Heading">
+            <button class="accordion-button cm-accordion-btn collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mod2"
+                    aria-expanded="false"
+                    aria-controls="mod2">
+              <span class="cm-number">Module 2</span>
+              <span class="cm-title-text">Ad Channel Landscape &amp; Budget Mapping</span>
+            </button>
+          </h2>
+          <div id="mod2"
+               class="accordion-collapse collapse"
+               aria-labelledby="mod2Heading"
+               data-bs-parent="#courseModulesAcc">
+            <div class="accordion-body cm-body">
+              <ul class="cm-list">
+                <li>Choosing the right channels for different business models.</li>
+                <li>Budget allocation logic for cold / warm / hot traffic.</li>
+                <li>Sample budget sheets you can reuse.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="accordion-item module-item reveal-on-scroll">
+          <h2 class="accordion-header" id="mod3Heading">
+            <button class="accordion-button cm-accordion-btn collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mod3"
+                    aria-expanded="false"
+                    aria-controls="mod3">
+              <span class="cm-number">Module 3</span>
+              <span class="cm-title-text">Funnel Architecture &amp; Conversion Mapping</span>
+            </button>
+          </h2>
+          <div id="mod3"
+               class="accordion-collapse collapse"
+               aria-labelledby="mod3Heading"
+               data-bs-parent="#courseModulesAcc">
+            <div class="accordion-body cm-body">
+              <ul class="cm-list">
+                <li>Designing full-funnel journeys from ad to purchase.</li>
+                <li>Identifying drop-off points and fixing bottlenecks.</li>
+                <li>Real examples and funnel templates.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 👉 Duplicate more module-item blocks for Module 4, 5, 6... -->
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ================= COURSE REQUIREMENTS & WHO SHOULD TAKE ================= -->
+<section class="course-bottom-info">
+  <div class="container">
+    <div class="row gy-5">
+
+      <!-- Requirements -->
+      <div class="col-12 col-lg-6">
+        <h3 class="cb-title reveal-on-scroll">
+          Course <span>Requirements</span>
+        </h3>
+
+        <ul class="cb-list">
+          <li class="reveal-on-scroll">
+            No prior experience with Meta / performance ads required – we start from the fundamentals.
+          </li>
+          <li class="reveal-on-scroll">
+            A laptop or desktop with a stable internet connection for implementation.
+          </li>
+          <li class="reveal-on-scroll">
+            Basic understanding of digital marketing helps but is not mandatory.
+          </li>
+          <li class="reveal-on-scroll">
+            A “testing mindset” and willingness to apply frameworks, not just watch videos.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Who should take -->
+      <div class="col-12 col-lg-6">
+        <h3 class="cb-title reveal-on-scroll">
+          Who Should Take <span>This Course</span>
+        </h3>
+
+        <ul class="cb-list">
+          <li class="reveal-on-scroll">
+            <strong>New performance marketers:</strong> Ready to upgrade to advanced structures,
+            attribution models &amp; scaling strategies.
+          </li>
+          <li class="reveal-on-scroll">
+            <strong>D2C &amp; SaaS founders:</strong> Tired of burning money on random ads and want
+            clarity on where their budget is going.
+          </li>
+          <li class="reveal-on-scroll">
+            <strong>Agency owners:</strong> Want sharper client results and standardized SOPs
+            for their teams.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ================= TOP PROGRAMS ================= -->
+<section class="top-programs py-5 py-lg-6">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="tp-heading text-center mb-4 mb-lg-5 reveal-on-scroll">
+      <div class="tp-kicker d-inline-flex align-items-center justify-content-center mb-2">
+        <span class="tp-dot me-2"></span>
+        <span class="tp-kicker-text">TOP PROGRAMS</span>
+      </div>
+      <h2 class="tp-title">
+        Master The Skills That Actually Matter
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- Card 1 -->
+      <div class="col-12 col-lg-6">
+        <article class="tp-card h-100 reveal-on-scroll">
+          <div class="tp-card-media">
+            <img
+              src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"
+              alt="Dream SEO Masterclass"
+              class="img-fluid">
+          </div>
+
+          <div class="tp-card-body">
+            <h3 class="tp-card-title">Dream SEO Masterclass – On Demand</h3>
+            <p class="tp-card-subtitle">
+              The most in-depth masterclass on SEO. Learn fundamentals, content,
+              automation and how to scale results in one go.
+            </p>
+
+            <div class="tp-card-footer d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+              <div class="tp-price mb-2 mb-sm-0">₹ 3,999</div>
+              <a href="#" class="btn tp-btn">
+                Explore Masterclass
+                <i class="bi bi-arrow-right-short ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-lg-6">
+        <article class="tp-card h-100 reveal-on-scroll">
+          <div class="tp-card-media">
+            <img
+              src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg"
+              alt="Google Analytics 4 Masterclass"
+              class="img-fluid">
+          </div>
+
+          <div class="tp-card-body">
+            <h3 class="tp-card-title">Google Analytics 4 Masterclass – On Demand</h3>
+            <p class="tp-card-subtitle">
+              Master GA4 with clear, practical dashboards that take you from basic setup
+              to advanced reporting in under 3 hours.
+            </p>
+
+            <div class="tp-card-footer d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+              <div class="tp-price mb-2 mb-sm-0">₹ 1,999</div>
+              <a href="#" class="btn tp-btn">
+                Explore Masterclass
+                <i class="bi bi-arrow-right-short ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <footer class="ew-footer">
+  <!-- Top Footer -->
+  <div class="ew-footer-top">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        
+        <!-- Brand / Logo -->
+       <div class="col-md-4 mt-3">
+  <a href="/" class="ew-footer-logo d-inline-flex align-items-center mb-3 text-decoration-none">
+    <img src="logo.png" alt="Elite Wisdom Logo" class="ew-footer-logo-img">
+  </a>
+
+  <p class="ew-footer-copy mb-0">
+    Strategic HR, business advisory & career development support across UAE &amp; India.
+  </p>
+</div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4 col-lg- mt-3">
+          <h6 class="ew-footer-heading">Contact</h6>
+          
+          <div class="ew-footer-contact-block">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇦🇪</span> UAE Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+971 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:info@elitewisdomstrategic.com">
+                info@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+
+          <div class="ew-footer-contact-block mt-3 mt-3">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇮🇳</span> India Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+91 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:india@elitewisdomstrategic.com">
+                india@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-2">
+          <h6 class="ew-footer-heading">Quick Links</h6>
+          <ul class="ew-footer-links list-unstyled mb-0">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-lg-3">
+          <!-- <h6 class="ew-footer-heading">Get Career, HR &amp; Business Insights</h6>
+          <form class="ew-footer-newsletter mb-3" action="#" method="post">
+            <div class="input-group">
+              <input type="email"
+                     class="form-control ew-footer-input"
+                     placeholder="Your email address"
+                     aria-label="Email for newsletter">
+              <button class="btn ew-footer-btn" type="submit">
+                Subscribe
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+            </div>
+          </form> -->
+
+          <div class="ew-footer-social-label mb-1">
+            Follow us
+          </div>
+          <div class="ew-footer-social">
+            <a href="#" aria-label="LinkedIn">
+              <i class="bi bi-linkedin text-white"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="bi bi-instagram text-white"></i>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <i class="bi bi-facebook text-white"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="bi bi-youtube text-white"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="ew-footer-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-white">
+        © <span id="ew-footer-year"></span> Elite Wisdom Strategic Group. All rights reserved.
+      </div>
+      <div class="small text-white">
+        Built for strategic growth &amp; lifelong learning.
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+          crossorigin="anonymous"></script>
+
+  <script>
+    // Single scroll-reveal observer with a UNIQUE name
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // If IntersectionObserver not supported, just show everything
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+          el.classList.add('in-view');
+        });
+        return;
+      }
+
+      const scrollRevealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);   // only animate once
+          }
+        });
+      }, {
+        threshold: 0.18
+      });
+
+      // Everything we want to animate
+      const targets = document.querySelectorAll(
+        '.reveal-on-scroll'
+      );
+
+      targets.forEach(el => scrollRevealObserver.observe(el));
+    });
+  </script>
+
+</body>
+</html>

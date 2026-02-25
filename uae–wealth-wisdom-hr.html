@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE – Wealth Wisdom HR</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="uae.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+      <!-- ================= HEADER ================= -->
+  <header class="ew-header">
+    <nav class="navbar ew-navbar navbar-dark navbar-expand-lg">
+      <div class="container">
+
+        <!-- Left: Logo -->
+       <a href="#" class="ew-logo">
+  <img src="logo.png"
+       alt="Elite Wisdom Strategic Group"
+       class="ew-logo-img">
+</a>
+
+        <!-- Desktop Nav Links (one line) -->
+        <ul class="navbar-nav ew-nav-links ms-4 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- Right: Utilities + Mobile Menu Button -->
+        <div class="ew-utilities">
+          <!-- Language (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Language selector">
+            <button type="button" class="active" data-lang="en">
+              EN
+            </button>
+            <button type="button" data-lang="ml">
+              ML
+            </button>
+          </div>
+
+          <!-- Location (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Location selector">
+            <button type="button" class="active" data-location="uae">
+              <span class="flag">🇦🇪</span> UAE
+            </button>
+            <button type="button" data-location="india">
+              <span class="flag">🇮🇳</span> India
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="ew-menu-btn d-lg-none" type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#ewOffcanvas"
+                  aria-controls="ewOffcanvas">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE OFFCANVAS MENU ================= -->
+  <div class="offcanvas offcanvas-start ew-offcanvas" tabindex="-1" id="ewOffcanvas">
+    <div class="offcanvas-header">
+      <div>
+        <div class="offcanvas-title">Elite Wisdom</div>
+        <small class="text-secondary">Strategic Group</small>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Nav links -->
+      <ul class="navbar-nav mb-3">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+      </ul>
+
+      <hr class="border-secondary-subtle">
+
+      <!-- Language (Mobile) -->
+      <div class="mb-3">
+        <div class="section-label">Language</div>
+        <div class="ew-pill-toggle w-100" aria-label="Language selector mobile">
+          <button type="button" class="active flex-fill" data-lang="en">
+            English
+          </button>
+          <button type="button" class="flex-fill" data-lang="ml">
+            Malayalam
+          </button>
+        </div>
+      </div>
+
+      <!-- Location (Mobile) -->
+      <div>
+        <div class="section-label">Location</div>
+        <div class="ew-pill-toggle w-100" aria-label="Location selector mobile">
+          <button type="button" class="active flex-fill" data-location="uae">
+            <span class="flag">🇦🇪</span> UAE
+          </button>
+          <button type="button" class="flex-fill" data-location="india">
+            <span class="flag">🇮🇳</span> India
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- ================= UAE HR BANNER ================= -->
+  <main>
+    <section class="uae-hero">
+      <div class="uae-hero-bg"></div>
+      <div class="uae-hero-inner">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- LEFT -->
+            <div class="col-lg-7 uae-hero-left">
+              <div class="uae-kicker">
+                <span class="flag">🇦🇪</span>
+                <span>Wealth Wisdom HR Consultancy • UAE</span>
+              </div>
+
+              <h1 class="uae-title">
+                Professional HR Solutions for SMEs, Startups &amp; Corporate Leaders &amp; Job Training &amp; Recruitment
+              </h1>
+
+              <p class="uae-subtitle">
+                Build a future-ready workforce with strategic HR, compliant policies, and practical people solutions tailored to UAE businesses.
+              </p>
+
+              <div class="uae-tagline">
+                <i class="bi bi-briefcase"></i>
+                End-to-end HR support from hiring to leadership development.
+              </div>
+
+              <div class="uae-pills">
+                <span class="uae-pill">
+                  <i class="bi bi-buildings"></i> SMEs &amp; Growing Businesses
+                </span>
+                <span class="uae-pill">
+                  <i class="bi bi-rocket"></i> Startups &amp; Founders
+                </span>
+                <span class="uae-pill">
+                  <i class="bi bi-person-workspace"></i> Corporate Leaders
+                </span>
+                <span class="uae-pill">
+                  <i class="bi bi-people-fill"></i> Job Training &amp; Recruitment
+                </span>
+              </div>
+
+              <div class="uae-cta">
+                <a href="#" class="btn-uae-primary">
+                  Request HR Consultation
+                  <i class="bi bi-arrow-right-short"></i>
+                </a>
+                <a href="#" class="btn-uae-ghost">
+                  View HR Services
+                  <i class="bi bi-layout-text-window-reverse"></i>
+                </a>
+              </div>
+
+              <div class="uae-meta">
+                Ideal for UAE-based SMEs, startups, and corporate teams seeking structured HR frameworks and practical talent solutions.
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="col-lg-5 d-none d-md-block uae-hero-right">
+              <div class="uae-side-card">
+                <div class="uae-side-title">Key Focus Areas</div>
+                <div class="uae-side-main">HR Strategy • Talent • Learning</div>
+                <ul class="uae-side-list">
+                  <li>
+                    <span class="uae-side-dot"></span>
+                    <span>HR audits, policy design, and manpower planning aligned with UAE labour regulations.</span>
+                  </li>
+                  <li>
+                    <span class="uae-side-dot"></span>
+                    <span>Role-based hiring support, competency mapping, and interview frameworks.</span>
+                  </li>
+                  <li>
+                    <span class="uae-side-dot"></span>
+                    <span>Job training programs and leadership upskilling for emerging and senior managers.</span>
+                  </li>
+                  <li>
+                    <span class="uae-side-dot"></span>
+                    <span>Employee engagement, performance management, and retention strategies.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="uae-functions" id="uae-functions" data-scroll-reveal="section">
+      <div class="container uae-functions-inner">
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-8 text-center">
+            <p class="uf-kicker">Sections &amp; Functions</p>
+            <h2 class="uf-title">HR Services &amp; Career Development Functions in UAE</h2>
+            <p class="uf-subtitle">
+              Each section is designed to support organizations, professionals, and job seekers with practical,
+              real-world HR solutions tailored to the UAE environment.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- A. HR Setup & Organisation Development -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+                 <div class="uf-icon">
+    <i class="bi bi-diagram-3-fill"></i>
+  </div>
+                <div class="uf-label">HR Setup &amp; Organisation Development</div>
+              </div>
+              <h3>HR Setup &amp; Organisation Development</h3>
+              <ul class="uf-list">
+                <li>HR policies &amp; employee handbook</li>
+                <li>Offer letters &amp; employment contracts</li>
+                <li>Employee file &amp; documentation system</li>
+                <li>Leave &amp; attendance structure</li>
+                <li>HR forms and templates</li>
+                <li>HR process &amp; workflow design</li>
+                <li>Organizational structuring</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- B. Recruitment & Career Support -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+                <div class="uf-icon">
+    <i class="bi bi-people-fill"></i>
+  </div>
+                <div class="uf-label">Recruitment &amp; Career Support</div>
+              </div>
+              <h3>Recruitment &amp; Career Support</h3>
+
+              <div class="uf-split">
+                <div class="uf-split-block">
+                  <div class="uf-tag">
+                    <i class="bi bi-briefcase-fill"></i> For Employers
+                  </div>
+                  <ul class="uf-list">
+                    <li>Job description preparation</li>
+                    <li>Job posting support</li>
+                    <li>CV screening &amp; shortlisting</li>
+                    <li>Interview coordination</li>
+                    <li>Candidate evaluation reports</li>
+                    <li>Joining follow-up</li>
+                  </ul>
+                </div>
+
+                <div class="uf-split-block">
+                  <div class="uf-tag">
+                    <i class="bi bi-person-lines-fill"></i> For Employees / Job Seekers
+                  </div>
+                  <ul class="uf-list">
+                    <li>CV correction &amp; formatting</li>
+                    <li>Interview preparation coaching</li>
+                    <li>Career guidance sessions</li>
+                    <li>Career training</li>
+                    <li>LinkedIn profile improvement</li>
+                    <li>Job search strategy support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C. Labour Law & HR Compliance -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+                <div class="uf-icon">
+  <i class="fa-solid fa-scale-balanced"></i>
+</div>
+                <div class="uf-label">Labour Law &amp; HR Compliance</div>
+              </div>
+              <h3>Labour Law &amp; HR Compliance</h3>
+              <ul class="uf-list">
+                <li>Warning letters &amp; disciplinary process</li>
+                <li>Termination guidance</li>
+                <li>UAE Labour Law consultation</li>
+                <li>MOHRE compliance support</li>
+                <li>HR documentation review</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- D. Monthly HR Advisory & Support -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+                <div class="uf-icon">
+    <i class="bi bi-chat-dots-fill"></i>
+  </div>
+                <div class="uf-label">Monthly HR Advisory &amp; Support</div>
+              </div>
+              <h3>Monthly HR Advisory &amp; Support</h3>
+              <ul class="uf-list">
+                <li>HR consultation</li>
+                <li>Employee issue handling</li>
+                <li>HR document preparation</li>
+                <li>Recruitment guidance</li>
+                <li>Performance management support</li>
+                <li>Policy updates</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- E. HR Training & Development -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+               <div class="uf-icon">
+    <i class="bi bi-mortarboard-fill"></i>
+  </div>
+
+                <div class="uf-label">HR Training &amp; Development</div>
+              </div>
+              <h3>HR Training &amp; Development</h3>
+              <ul class="uf-list">
+                <li>HR basics training</li>
+                <li>Supervisor &amp; leadership training</li>
+                <li>HR executive skill development</li>
+                <li>HR manager development programs</li>
+                <li>Employee communication workshops</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- F. HR Courses & Career Development Programs -->
+          <div class="col-md-6 col-xl-4">
+            <div class="uf-card">
+              <div class="uf-badge">
+                <div class="uf-icon">
+    <i class="bi bi-journal-bookmark-fill"></i>
+  </div>
+
+                <div class="uf-label">HR Courses &amp; Career Development</div>
+              </div>
+              <h3>HR Courses &amp; Career Development Programs</h3>
+              <ul class="uf-list">
+                <li>Entry-Level HR Training</li>
+                <li>HR Executive Development</li>
+                <li>HR Manager Leadership Training</li>
+                <li>Practical UAE HR &amp; Labour Law Training</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA row -->
+        <div class="uf-cta-row" id="uf-cta">
+          <a href="#"
+             class="btn-uf-primary">
+            Book Consultation
+            <i class="bi bi-calendar-check"></i>
+          </a>
+
+          <a href="#"
+             class="btn-uf-ghost">
+            Enrol in HR Courses
+            <i class="bi bi-mortarboard-fill"></i>
+          </a>
+
+          <a href="#"
+             class="btn-uf-ghost">
+            Contact UAE Office
+            <i class="bi bi-geo-alt-fill"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="ew-footer mt-5">
+  <!-- Top Footer -->
+  <div class="ew-footer-top">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        
+        <!-- Brand / Logo -->
+       <div class="col-md-4 mt-3">
+  <a href="/" class="ew-footer-logo d-inline-flex align-items-center mb-3 text-decoration-none">
+    <img src="logo.png" alt="Elite Wisdom Logo" class="ew-footer-logo-img">
+  </a>
+
+  <p class="ew-footer-copy mb-0">
+    Strategic HR, business advisory & career development support across UAE &amp; India.
+  </p>
+</div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4 col-lg- mt-3">
+          <h6 class="ew-footer-heading">Contact</h6>
+          
+          <div class="ew-footer-contact-block">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇦🇪</span> UAE Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+971 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:info@elitewisdomstrategic.com">
+                info@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+
+          <div class="ew-footer-contact-block mt-3 mt-3">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇮🇳</span> India Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+91 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:india@elitewisdomstrategic.com">
+                india@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-2">
+          <h6 class="ew-footer-heading">Quick Links</h6>
+          <ul class="ew-footer-links list-unstyled mb-0">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-lg-3">
+          <!-- <h6 class="ew-footer-heading">Get Career, HR &amp; Business Insights</h6>
+          <form class="ew-footer-newsletter mb-3" action="#" method="post">
+            <div class="input-group">
+              <input type="email"
+                     class="form-control ew-footer-input"
+                     placeholder="Your email address"
+                     aria-label="Email for newsletter">
+              <button class="btn ew-footer-btn" type="submit">
+                Subscribe
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+            </div>
+          </form> -->
+
+          <div class="ew-footer-social-label mb-1">
+            Follow us
+          </div>
+          <div class="ew-footer-social">
+            <a href="#" aria-label="LinkedIn">
+              <i class="bi bi-linkedin text-white"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="bi bi-instagram text-white"></i>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <i class="bi bi-facebook text-white"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="bi bi-youtube text-white"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="ew-footer-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-white">
+        © <span id="ew-footer-year"></span> Elite Wisdom Strategic Group. All rights reserved.
+      </div>
+      <div class="small text-white">
+        Built for strategic growth &amp; lifelong learning.
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+        <script>
+               document.addEventListener('DOMContentLoaded', function () {
+      const uaeHero = document.querySelector('.uae-hero');
+
+      if (!uaeHero) return;
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                uaeHero.classList.add('in-view');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+        observer.observe(uaeHero);
+      } else {
+        // fallback – show immediately
+        uaeHero.classList.add('in-view');
+      }
+    });
+
+
+
+     document.addEventListener('DOMContentLoaded', function () {
+    const uaeHero = document.querySelector('.uae-hero');
+    const uaeServices = document.querySelector('.uae-services');
+
+    // helper to mark section as in-view
+    function showSection(section) {
+      if (section && !section.classList.contains('in-view')) {
+        section.classList.add('in-view');
+      }
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              showSection(entry.target);
+              obs.unobserve(entry.target);   // animate once
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      if (uaeHero) observer.observe(uaeHero);
+      if (uaeServices) observer.observe(uaeServices);
+
+    } else {
+      // Fallback – just show everything
+      if (uaeHero) uaeHero.classList.add('in-view');
+      if (uaeServices) uaeServices.classList.add('in-view');
+    }
+  });
+
+
+
+
+      document.addEventListener('DOMContentLoaded', function () {
+      const revealSections = document.querySelectorAll('[data-scroll-reveal="section"]');
+
+      function showSection(section) {
+        if (section && !section.classList.contains('in-view')) {
+          section.classList.add('in-view');
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                showSection(entry.target);
+                obs.unobserve(entry.target);  // animate each only once
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+
+        revealSections.forEach(sec => observer.observe(sec));
+      } else {
+        // Fallback: no scroll animation, just show everything
+        revealSections.forEach(sec => sec.classList.add('in-view'));
+      }
+    });
+        </script>
+
+</body>
+</html>

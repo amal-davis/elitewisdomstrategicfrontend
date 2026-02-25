@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    
+  <!-- ================= HEADER ================= -->
+  <header class="ew-header">
+    <nav class="navbar ew-navbar navbar-dark navbar-expand-lg">
+      <div class="container">
+
+        <!-- Left: Logo -->
+        <!-- Left: Logo -->
+<a href="#" class="ew-logo">
+  <img src="logo.png"
+       alt="Elite Wisdom Strategic Group"
+       class="ew-logo-img">
+</a>
+
+        <!-- Desktop Nav Links (one line) -->
+        <ul class="navbar-nav ew-nav-links ms-4 d-none d-lg-flex">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- Right: Utilities + Mobile Menu Button -->
+        <div class="ew-utilities">
+          <!-- Language (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Language selector">
+            <button type="button" class="active" data-lang="en">
+              EN
+            </button>
+            <button type="button" data-lang="ml">
+              ML
+            </button>
+          </div>
+
+          <!-- Location (Desktop) -->
+          <div class="ew-pill-toggle d-none d-lg-inline-flex" aria-label="Location selector">
+            <button type="button" class="active" data-location="uae">
+              <span class="flag">🇦🇪</span> UAE
+            </button>
+            <button type="button" data-location="india">
+              <span class="flag">🇮🇳</span> India
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="ew-menu-btn d-lg-none" type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#ewOffcanvas"
+                  aria-controls="ewOffcanvas">
+            <i class="bi bi-list"></i>
+            <span>Menu</span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE OFFCANVAS MENU ================= -->
+  <div class="offcanvas offcanvas-start ew-offcanvas" tabindex="-1" id="ewOffcanvas">
+    <div class="offcanvas-header">
+      <div>
+        <div class="offcanvas-title">Elite Wisdom</div>
+        <small class="text-secondary">Strategic Group</small>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Nav links -->
+      <ul class="navbar-nav mb-3">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+      </ul>
+
+      <hr class="border-secondary-subtle">
+
+      <!-- Language (Mobile) -->
+      <div class="mb-3">
+        <div class="section-label">Language</div>
+        <div class="ew-pill-toggle w-100" aria-label="Language selector mobile">
+          <button type="button" class="active flex-fill" data-lang="en">
+            English
+          </button>
+          <button type="button" class="flex-fill" data-lang="ml">
+            Malayalam
+          </button>
+        </div>
+      </div>
+
+      <!-- Location (Mobile) -->
+      <div>
+        <div class="section-label">Location</div>
+        <div class="ew-pill-toggle w-100" aria-label="Location selector mobile">
+          <button type="button" class="active flex-fill" data-location="uae">
+            <span class="flag">🇦🇪</span> UAE
+          </button>
+          <button type="button" class="flex-fill" data-location="india">
+            <span class="flag">🇮🇳</span> India
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ============= BLOG LIST SECTION ============= -->
+<section class="ew-blog-list py-5">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="row justify-content-between align-items-end mb-4">
+      <div class="col-md-8">
+        <h2 class="ew-blog-title mb-1">Latest Insights &amp; Articles</h2>
+        <p class="ew-blog-sub mb-0">
+          Practical HR, leadership and career growth content curated by Elite Wisdom mentors.
+        </p>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="#" class="ew-blog-archive-link">
+          View all posts <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Blog cards grid -->
+    <div class="row g-4">
+
+      <!-- Blog Card 1 -->
+      <div class="col-md-6 col-lg-4 blog-reveal">
+        <article class="ew-blog-card h-100">
+          <div class="ew-blog-image-wrap">
+            <img
+              src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="UAE HR & Labour Law: Key Compliance Essentials"
+              class="ew-blog-image">
+          </div>
+
+          <div class="ew-blog-body">
+            <div class="ew-blog-meta">
+              <span class="ew-blog-date">
+                <i class="bi bi-calendar-event me-1"></i> Feb 24, 2026
+              </span>
+              <span class="ew-blog-dot">•</span>
+              <span class="ew-blog-author">
+                <i class="bi bi-person-circle me-1"></i> By Anjali Nair
+              </span>
+            </div>
+
+            <h3 class="ew-blog-heading">
+              UAE HR &amp; Labour Law: 7 Compliance Essentials Every Manager Must Know
+            </h3>
+
+            <p class="ew-blog-excerpt mb-3">
+              From contracts to terminations, understand the non-negotiable
+              HR practices to avoid penalties and build trust with your workforce.
+            </p>
+
+            <a href="#" class="ew-blog-link">
+              View more <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="col-md-6 col-lg-4 blog-reveal">
+        <article class="ew-blog-card h-100">
+          <div class="ew-blog-image-wrap">
+            <img
+              src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Mindset & Manifestation for Career Growth"
+              class="ew-blog-image">
+          </div>
+
+          <div class="ew-blog-body">
+            <div class="ew-blog-meta">
+              <span class="ew-blog-date">
+                <i class="bi bi-calendar-event me-1"></i> Feb 18, 2026
+              </span>
+              <span class="ew-blog-dot">•</span>
+              <span class="ew-blog-author">
+                <i class="bi bi-person-circle me-1"></i> By Elite Wisdom Team
+              </span>
+            </div>
+
+            <h3 class="ew-blog-heading">
+              Mindset &amp; Manifestation: How High Performers Design Their Career Path
+            </h3>
+
+            <p class="ew-blog-excerpt mb-3">
+              Learn how small daily habits, intentional reflection and clarity
+              on your goals compound into career-changing decisions.
+            </p>
+
+            <a href="#" class="ew-blog-link">
+              View more <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="col-md-6 col-lg-4 blog-reveal">
+        <article class="ew-blog-card h-100">
+          <div class="ew-blog-image-wrap">
+            <img
+              src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Practical Career Playbook for Indian Freshers"
+              class="ew-blog-image">
+          </div>
+
+          <div class="ew-blog-body">
+            <div class="ew-blog-meta">
+              <span class="ew-blog-date">
+                <i class="bi bi-calendar-event me-1"></i> Feb 10, 2026
+              </span>
+              <span class="ew-blog-dot">•</span>
+              <span class="ew-blog-author">
+                <i class="bi bi-person-circle me-1"></i> By Rahul Mehta
+              </span>
+            </div>
+
+            <h3 class="ew-blog-heading">
+              A Practical Career Playbook for Indian Graduates Entering GCC Markets
+            </h3>
+
+            <p class="ew-blog-excerpt mb-3">
+              Resume, LinkedIn, interviews and work culture – a realistic guide
+              for Indian talent targeting roles in UAE and beyond.
+            </p>
+
+            <a href="#" class="ew-blog-link">
+              View more <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Duplicate more .col-... blocks for more posts -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="ew-footer">
+  <!-- Top Footer -->
+  <div class="ew-footer-top">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        
+        <!-- Brand / Logo -->
+       <div class="col-md-4 mt-3">
+  <a href="/" class="ew-footer-logo d-inline-flex align-items-center mb-3 text-decoration-none">
+    <img src="logo.png" alt="Elite Wisdom Logo" class="ew-footer-logo-img">
+  </a>
+
+  <p class="ew-footer-copy mb-0">
+    Strategic HR, business advisory & career development support across UAE &amp; India.
+  </p>
+</div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4 col-lg- mt-3">
+          <h6 class="ew-footer-heading">Contact</h6>
+          
+          <div class="ew-footer-contact-block">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇦🇪</span> UAE Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+971 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:info@elitewisdomstrategic.com">
+                info@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+
+          <div class="ew-footer-contact-block mt-3 mt-3">
+            <div class="ew-footer-contact-label">
+              <span class="flag">🇮🇳</span> India Office
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-telephone"></i>
+              <span>+91 XXXXXXXX</span>
+            </div>
+            <div class="ew-footer-contact-line">
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:india@elitewisdomstrategic.com">
+                india@elitewisdomstrategic.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 col-lg-2">
+          <h6 class="ew-footer-heading">Quick Links</h6>
+          <ul class="ew-footer-links list-unstyled mb-0">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Social -->
+        <div class="col-lg-3">
+          <!-- <h6 class="ew-footer-heading">Get Career, HR &amp; Business Insights</h6>
+          <form class="ew-footer-newsletter mb-3" action="#" method="post">
+            <div class="input-group">
+              <input type="email"
+                     class="form-control ew-footer-input"
+                     placeholder="Your email address"
+                     aria-label="Email for newsletter">
+              <button class="btn ew-footer-btn" type="submit">
+                Subscribe
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+            </div>
+          </form> -->
+
+          <div class="ew-footer-social-label mb-1">
+            Follow us
+          </div>
+          <div class="ew-footer-social">
+            <a href="#" aria-label="LinkedIn">
+              <i class="bi bi-linkedin text-white"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="bi bi-instagram text-white"></i>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <i class="bi bi-facebook text-white"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="bi bi-youtube text-white"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="ew-footer-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-white">
+        © <span id="ew-footer-year"></span> Elite Wisdom Strategic Group. All rights reserved.
+      </div>
+      <div class="small text-white">
+        Built for strategic growth &amp; lifelong learning.
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+        <script>
+              document.addEventListener('DOMContentLoaded', function(){
+    // Blog scroll animation
+    const blogObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          blogObserver.unobserve(entry.target);
+        }
+      });
+    },{
+      threshold:0.18
+    });
+
+    document.querySelectorAll('.blog-reveal').forEach(el=>{
+      blogObserver.observe(el);
+    });
+  });
+        </script>
+</body>
+</html>

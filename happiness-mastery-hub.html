@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happiness Mastery Hub</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#9a54d5;
+      --primary-dark:#7a2ec0;
+      --primary-soft:#f4ebfb;
+      --white:#ffffff;
+      --text:#161616;
+      --muted:#6f6f78;
+      --border:#ece6f3;
+      --bg:#fcfbfe;
+      --dark:#121212;
+      --shadow:0 14px 40px rgba(154,84,213,.12);
+      --radius:20px;
+      --navH:84px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      height:auto;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    section{
+      position:relative;
+    }
+
+    .container{
+      max-width:1240px;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+    .hmh-navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index: 1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(154,84,213,.10);
+      transition:.3s ease;
+    }
+
+    .hmh-navbar.scrolled{
+      box-shadow:0 8px 25px rgba(0,0,0,.06);
+    }
+
+    .hmh-navbar .navbar-inner{
+      min-height:var(--navH);
+    }
+
+    .brand-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-wrap img{
+      width:62px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+
+    .brand-text strong{
+      font-size:1rem;
+      font-weight:800;
+      color:var(--text);
+      letter-spacing:.02em;
+    }
+
+    .brand-text span{
+      font-size:.78rem;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      gap:26px;
+    }
+
+    .desktop-nav .nav-link{
+      color:var(--text);
+      font-weight:600;
+      font-size:.96rem;
+      position:relative;
+      padding:0;
+    }
+
+    .desktop-nav .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--primary);
+      transition:.3s ease;
+      border-radius:10px;
+    }
+
+    .desktop-nav .nav-link:hover::after,
+    .desktop-nav .nav-link.active::after{
+      width:100%;
+    }
+
+    .desktop-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-left:24px;
+    }
+
+    .top-pill{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 14px;
+      color:var(--text);
+      font-size:.88rem;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .top-pill i{
+      color:var(--primary);
+    }
+
+    .cta-nav-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:var(--white);
+      font-weight:700;
+      border:none;
+      transition:.3s ease;
+      box-shadow:0 10px 28px rgba(154,84,213,.28);
+    }
+
+    .cta-nav-btn:hover{
+      transform:translateY(-2px);
+      color:var(--white);
+    }
+
+    .mobile-toggle{
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.35rem;
+    }
+
+    /* =========================
+       OFFCANVAS
+    ========================= */
+    .offcanvas.hmh-offcanvas{
+      width:310px;
+      background:#fff;
+      border-right:1px solid var(--border);
+    }
+
+    .hmh-offcanvas .offcanvas-header{
+      padding:20px 20px 10px;
+    }
+
+    .hmh-offcanvas .offcanvas-body{
+      padding:10px 20px 24px;
+    }
+
+    .mobile-brand img{
+      width:56px;
+    }
+
+    .mobile-menu-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .mobile-menu-links a{
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      color:var(--text);
+      font-weight:600;
+      background:#fff;
+      transition:.3s ease;
+    }
+
+    .mobile-menu-links a:hover{
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+    }
+
+    .mobile-utility{
+      margin-top:22px;
+      display:grid;
+      gap:12px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero-section{
+      padding-top:calc(var(--navH) + 30px);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,15,20,.72) 0%, rgba(15,15,20,.52) 40%, rgba(15,15,20,.18) 100%),
+        url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      z-index:0;
+    }
+
+    .hero-blur{
+      position:absolute;
+      top:10%;
+      right:-120px;
+      width:340px;
+      height:340px;
+      background:rgba(154,84,213,.25);
+      filter:blur(80px);
+      border-radius:50%;
+      z-index:0;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      color:#fff;
+      max-width:760px;
+      padding:70px 0 80px;
+    }
+
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:600;
+      margin-bottom:22px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero-title{
+      font-size:clamp(2.2rem, 5vw, 4.4rem);
+      font-weight:800;
+      line-height:1.06;
+      margin-bottom:18px;
+      letter-spacing:-.03em;
+    }
+
+    .hero-title span{
+      color:#dcc0f6;
+    }
+
+    .hero-subtitle{
+      font-size:1.08rem;
+      line-height:1.9;
+      color:rgba(255,255,255,.88);
+      max-width:690px;
+      margin-bottom:30px;
+    }
+
+    .hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:32px;
+    }
+
+    .hero-points .point{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      font-weight:600;
+      font-size:.92rem;
+      backdrop-filter:blur(8px);
+    }
+
+    .hero-points .point i{
+      color:#b67af0;
+    }
+
+    .hero-btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn-main{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      border:none;
+      transition:.3s ease;
+      box-shadow:0 14px 34px rgba(154,84,213,.28);
+    }
+
+    .btn-main:hover{
+      transform:translateY(-3px);
+      color:#fff;
+    }
+
+    .btn-outline-light-custom{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid rgba(255,255,255,.22);
+      transition:.3s ease;
+      backdrop-filter:blur(10px);
+    }
+
+    .btn-outline-light-custom:hover{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      transform:translateY(-3px);
+    }
+
+    /* =========================
+       COMMON SECTION STYLES
+    ========================= */
+    .section-pad{
+      padding:90px 0;
+    }
+
+    .sec-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      border-radius:999px;
+      font-weight:700;
+      font-size:.86rem;
+      margin-bottom:16px;
+    }
+
+    .sec-title{
+      font-size:clamp(1.9rem, 3.8vw, 3rem);
+      font-weight:800;
+      line-height:1.15;
+      margin-bottom:16px;
+      letter-spacing:-.02em;
+    }
+
+    .sec-desc{
+      color:var(--muted);
+      font-size:1.04rem;
+      line-height:1.9;
+      max-width:760px;
+    }
+
+    .title-wrap{
+      margin-bottom:50px;
+    }
+
+    /* =========================
+       INTRO SECTION
+    ========================= */
+    .intro-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .intro-highlight{
+      border-left:4px solid var(--primary);
+      background:linear-gradient(180deg,#fff,#fbf7ff);
+      padding:22px 22px 22px 18px;
+      border-radius:18px;
+      margin-top:24px;
+    }
+
+    .intro-highlight p{
+      margin:0;
+      color:var(--text);
+      font-weight:600;
+      line-height:1.8;
+    }
+
+    .intro-img{
+      height:100%;
+      min-height:420px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .intro-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+    .mastery-card{
+      height:100%;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px 24px;
+      box-shadow:var(--shadow);
+      transition:.35s ease;
+    }
+
+    .mastery-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(154,84,213,.35);
+    }
+
+    .mastery-icon{
+      width:66px;
+      height:66px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--primary-soft),#fff);
+      color:var(--primary-dark);
+      font-size:1.6rem;
+      margin-bottom:18px;
+      box-shadow:0 10px 25px rgba(154,84,213,.12);
+    }
+
+    .mastery-card h4{
+      font-size:1.22rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .mastery-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .mastery-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--muted);
+      line-height:1.7;
+      font-weight:500;
+    }
+
+    .mastery-list li i{
+      color:var(--primary);
+      margin-top:4px;
+      font-size:1rem;
+      flex-shrink:0;
+    }
+
+    /* =========================
+       CTA BAND
+    ========================= */
+    .cta-band{
+      background:linear-gradient(135deg,#f7effd,#ffffff);
+      border:1px solid var(--border);
+      border-radius:32px;
+      padding:40px 34px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-band h3{
+      font-size:clamp(1.7rem, 3vw, 2.5rem);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .cta-band p{
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:24px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer{
+      background:#111017;
+      color:#fff;
+      padding:80px 0 24px;
+      overflow:hidden;
+    }
+
+    .footer-brand{
+      margin-bottom:18px;
+    }
+
+    .footer-brand img{
+      width:70px;
+      margin-bottom:14px;
+    }
+
+    .footer-brand h4{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+      max-width:420px;
+    }
+
+    .footer-title{
+      font-size:1.05rem;
+      font-weight:800;
+      margin-bottom:18px;
+      color:#fff;
+    }
+
+    .footer-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-list li,
+    .footer-list a{
+      color:rgba(255,255,255,.76);
+      font-weight:500;
+    }
+
+    .footer-list a:hover{
+      color:#fff;
+    }
+
+    .footer-contact-card,
+    .footer-newsletter{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:22px;
+      padding:22px;
+      height:100%;
+    }
+
+    .footer-contact-card h6{
+      font-size:1rem;
+      font-weight:800;
+      margin-bottom:12px;
+      color:#fff;
+    }
+
+    .footer-contact-card p,
+    .footer-contact-card a{
+      color:rgba(255,255,255,.76);
+      line-height:1.9;
+      margin:0;
+    }
+
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .social-links a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      font-size:1rem;
+      transition:.3s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--primary);
+      transform:translateY(-3px);
+    }
+
+    .newsletter-form{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter-form input{
+      flex:1;
+      min-width:220px;
+      height:50px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      padding:0 16px;
+      background:#fff;
+    }
+
+    .newsletter-form button{
+      height:50px;
+      border:none;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      padding:0 20px;
+      font-weight:700;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:36px;
+      padding-top:18px;
+      text-align:center;
+      color:rgba(255,255,255,.62);
+      font-size:.94rem;
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+      will-change:transform, opacity;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 1199.98px){
+      .desktop-nav{
+        gap:18px;
+      }
+      .desktop-actions{
+        gap:8px;
+        margin-left:16px;
+      }
+      .top-pill{
+        padding:8px 12px;
+        font-size:.83rem;
+      }
+    }
+
+    @media (max-width: 991.98px){
+      :root{
+        --navH:78px;
+      }
+
+      .hero-section{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:60px 0 70px;
+      }
+
+      .hero-title{
+        max-width:100%;
+      }
+
+      .intro-img{
+        min-height:320px;
+        margin-top:20px;
+      }
+
+      .section-pad{
+        padding:75px 0;
+      }
+    }
+
+    @media (max-width: 767.98px){
+      .brand-wrap img{
+        width:48px;
+      }
+
+      .brand-text strong{
+        font-size:.92rem;
+      }
+
+      .brand-text span{
+        font-size:.72rem;
+      }
+
+      .hero-content{
+        text-align:left;
+        padding:50px 0 60px;
+      }
+
+      .hero-subtitle{
+        font-size:1rem;
+        line-height:1.8;
+      }
+
+      .hero-btns{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn-main,
+      .btn-outline-light-custom{
+        width:100%;
+      }
+
+      .section-pad{
+        padding:65px 0;
+      }
+
+      .intro-card,
+      .cta-band{
+        padding:24px 20px;
+      }
+
+      .mastery-card{
+        padding:24px 20px;
+      }
+
+      .footer{
+        padding:65px 0 24px;
+      }
+
+      .newsletter-form{
+        flex-direction:column;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button{
+        width:100%;
+      }
+    }
+
+    @media (max-width: 575.98px){
+      .hero-points{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+
+      .sec-title{
+        font-size:1.8rem;
+      }
+
+      .hero-tag{
+        font-size:.82rem;
+      }
+    }
+.toggle-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.toggle-label{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.9);
+  border:1px solid #e9dcf7;
+  color:#7a2ec0;
+  flex-shrink:0;
+  box-shadow:0 6px 16px rgba(154,84,213,.08);
+}
+
+.switch-toggle{
+  display:inline-flex;
+  align-items:center;
+  background:rgba(255,255,255,.95);
+  border:1px solid #e9dcf7;
+  border-radius:999px;
+  padding:4px;
+  gap:4px;
+  box-shadow:0 8px 20px rgba(154,84,213,.08);
+}
+
+.toggle-btn{
+  border:none;
+  background:transparent;
+  color:#1a1a1a;
+  font-size:.85rem;
+  font-weight:600;
+  padding:9px 16px;
+  border-radius:999px;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+
+.toggle-btn.active{
+  background:linear-gradient(135deg,#9a54d5,#7a2ec0);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(154,84,213,.24);
+}
+
+.toggle-btn:hover{
+  color:#7a2ec0;
+  background:#f8f1fd;
+}
+
+.toggle-btn.active:hover{
+  color:#fff;
+  background:linear-gradient(135deg,#9a54d5,#7a2ec0);
+}
+    
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+  <header class="hmh-navbar" id="mainNavbar">
+    <div class="container">
+      <div class="navbar-inner d-flex align-items-center justify-content-between">
+
+        <!-- Left Logo -->
+        <a href="#home" class="brand-wrap">
+          <!-- Replace with your logo path -->
+          <img src="hapiness-logo.png" alt="Happiness Mastery Hub Logo" class="img-fluid">
+          <!-- <div class="brand-text">
+            <strong>Happiness Mastery Hub</strong>
+            <span>Master Your Mind. Align Your Life.</span>
+          </div> -->
+        </a>
+
+        <!-- Desktop Right -->
+        <div class="d-none d-lg-flex align-items-center">
+          <nav class="desktop-nav">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#services">Services</a>
+            <a class="nav-link" href="#books">Books</a>
+            <a class="nav-link" href="#courses">Courses</a>
+            <a class="nav-link" href="#blog">Blog</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </nav>
+
+          <div class="desktop-actions">
+  <!-- Language Toggle -->
+
+
+  <!-- Location Toggle -->
+<div class="toggle-group">
+  <!-- <div class="toggle-label">
+    <i class="bi bi-translate"></i>
+  </div> -->
+  <div class="switch-toggle" id="languageToggle">
+    <button type="button" class="toggle-btn active" data-value="english">English</button>
+    <button type="button" class="toggle-btn" data-value="malayalam">Malayalam</button>
+  </div>
+</div>
+
+<div class="toggle-group">
+  <!-- <div class="toggle-label">
+    <i class="bi bi-geo-alt"></i>
+  </div> -->
+  <div class="switch-toggle" id="locationToggle">
+    <button type="button" class="toggle-btn active" data-value="uae">UAE</button>
+    <button type="button" class="toggle-btn" data-value="india">India</button>
+  </div>
+</div>
+
+  <a href="#cta" class="cta-nav-btn">Book Consultation</a>
+</div>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle d-lg-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MOBILE OFFCANVAS
+  ========================= -->
+  <div class="offcanvas offcanvas-start hmh-offcanvas" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <div class="mobile-brand d-flex align-items-center gap-2">
+        <img src="hapiness-logo.png" alt="Logo">
+        <!-- <div>
+          <strong class="d-block">Happiness Mastery Hub</strong>
+          <small class="text-muted">Transformation Ecosystem</small>
+        </div> -->
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mobile-menu-links">
+        <a href="#home" data-bs-dismiss="offcanvas">Home</a>
+        <a href="#about" data-bs-dismiss="offcanvas">About Us</a>
+        <a href="#services" data-bs-dismiss="offcanvas">Services</a>
+        <a href="#books" data-bs-dismiss="offcanvas">Books</a>
+        <a href="#courses" data-bs-dismiss="offcanvas">Courses</a>
+        <a href="#blog" data-bs-dismiss="offcanvas">Blog</a>
+        <a href="#contact" data-bs-dismiss="offcanvas">Contact Us</a>
+      </div>
+
+      <div class="mobile-utility">
+        <div class="top-pill justify-content-center">
+          <i class="bi bi-translate"></i>
+          English / Malayalam
+        </div>
+        <div class="top-pill justify-content-center">
+          <i class="bi bi-geo-alt"></i>
+          UAE | India
+        </div>
+        <a href="#cta" class="cta-nav-btn text-center mt-2" data-bs-dismiss="offcanvas">Start Journey</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO SECTION
+  ========================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-blur"></div>
+
+    <div class="container position-relative">
+      <div class="hero-content reveal">
+        <div class="hero-tag">
+          <i class="bi bi-stars"></i>
+          Structured Inner Mastery for a Better Life
+        </div>
+
+        <h1 class="hero-title">
+          Master Your Mind. <br>
+          <span>Align Your Emotions.</span><br>
+          Master Your Life.
+        </h1>
+
+        <p class="hero-subtitle">
+          Your life does not change by chance. It changes when your mind becomes clear,
+          your emotions become stable, and your actions become aligned. Happiness Mastery Hub
+          is a transformation ecosystem designed to help you regain control over your inner world
+          so your outer life responds differently.
+        </p>
+
+        <div class="hero-points">
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Clarity of Mind</div>
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Emotional Stability</div>
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Purposeful Living</div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#cta" class="btn-main">
+            <i class="bi bi-arrow-right-circle"></i> Start Your Journey
+          </a>
+          <a href="#contact" class="btn-outline-light-custom">
+            <i class="bi bi-calendar2-check"></i> Book a Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       ABOUT / INTRO
+  ========================= -->
+  <section class="section-pad" id="about">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="intro-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-flower1"></i> About Happiness Mastery Hub
+            </div>
+            <h2 class="sec-title">This is not temporary motivation. This is structured inner mastery.</h2>
+            <p class="sec-desc">
+              When the mind is disciplined, emotions are balanced, and awareness becomes strong,
+              life stops feeling heavy and starts feeling purposeful. Happiness Mastery Hub helps
+              individuals create internal order, emotional strength, and aligned action for lasting transformation.
+            </p>
+
+            <div class="intro-highlight">
+              <p>
+                Transformation does not begin outside. It begins inside. Once clarity, stability,
+                and awareness are built within, relationships, business, wealth, and life direction
+                begin to shift with more purpose and power.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="intro-img reveal">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Mindfulness and inner mastery">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       SERVICES / THREE MASTERY BLOCKS
+  ========================= -->
+  <section class="section-pad pt-0" id="services">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-lightbulb"></i> Core Transformation Areas
+        </div>
+        <h2 class="sec-title">What Happens When You Begin Inner Mastery?</h2>
+        <p class="sec-desc mx-auto">
+          Our ecosystem helps you build mental discipline, emotional alignment, and life leadership
+          through structured guidance, actionable methods, and consistent personal growth.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon">
+  <i class="bi bi-lightbulb"></i>
+</div>
+            <h4>Master Your Mind</h4>
+            <ul class="mastery-list">
+              <li><i class="bi bi-check2-circle"></i> Repetitive negative thoughts reduce</li>
+              <li><i class="bi bi-check2-circle"></i> Emotional reactions become controlled</li>
+              <li><i class="bi bi-check2-circle"></i> Decision-making becomes clearer</li>
+              <li><i class="bi bi-check2-circle"></i> Confidence strengthens</li>
+              <li><i class="bi bi-check2-circle"></i> Stress levels decrease</li>
+              <li><i class="bi bi-check2-circle"></i> Inner peace becomes stable</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h4>Align Your Emotions</h4>
+            <ul class="mastery-list">
+              <li><i class="bi bi-check2-circle"></i> Relationships improve</li>
+              <li><i class="bi bi-check2-circle"></i> Anxiety reduces</li>
+              <li><i class="bi bi-check2-circle"></i> Fear loses power</li>
+              <li><i class="bi bi-check2-circle"></i> Communication becomes stronger</li>
+              <li><i class="bi bi-check2-circle"></i> Energy becomes balanced</li>
+              <li><i class="bi bi-check2-circle"></i> Awareness becomes more stable</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mx-md-auto">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon">
+              <i class="bi bi-compass"></i>
+            </div>
+            <h4>Master Your Life</h4>
+            <ul class="mastery-list">
+              <li><i class="bi bi-check2-circle"></i> Stop reacting and start leading</li>
+              <li><i class="bi bi-check2-circle"></i> Move from confusion to clarity</li>
+              <li><i class="bi bi-check2-circle"></i> Build wealth with discipline</li>
+              <li><i class="bi bi-check2-circle"></i> Grow business with structure</li>
+              <li><i class="bi bi-check2-circle"></i> Live with inner stability</li>
+              <li><i class="bi bi-check2-circle"></i> Create long-term aligned action</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       BOOKS / IMAGE CONTENT SECTION
+  ========================= -->
+  <section class="section-pad" id="books" style="background:#fff;">
+    <div class="container">
+      <div class="row g-4 align-items-center flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="intro-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-book"></i> Books & Resources
+            </div>
+            <h2 class="sec-title">Wisdom that supports disciplined transformation</h2>
+            <p class="sec-desc">
+              The platform can feature books, guides, reflective workbooks, and mental mastery
+              resources that help users apply transformational principles in daily life.
+            </p>
+
+            <ul class="mastery-list mt-4">
+              <li><i class="bi bi-check2-circle"></i> Personal growth books</li>
+              <li><i class="bi bi-check2-circle"></i> Guided self-reflection resources</li>
+              <li><i class="bi bi-check2-circle"></i> Emotional mastery frameworks</li>
+              <li><i class="bi bi-check2-circle"></i> Mindset and awareness development tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="intro-img reveal">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80" alt="Books and learning">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       COURSES
+  ========================= -->
+  <section class="section-pad" id="courses">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-mortarboard"></i> Courses & Learning
+        </div>
+        <h2 class="sec-title">A learning ecosystem for mind, emotion, and life mastery</h2>
+        <p class="sec-desc mx-auto">
+          Build a future-ready LMS-style platform with transformational courses, structured lessons,
+          guided sessions, and practical modules that create real internal change.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-journal-richtext"></i></div>
+            <h4>Structured Lessons</h4>
+            <p class="sec-desc mb-0">Step-by-step course journeys for personal and professional transformation.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-play-circle"></i></div>
+            <h4>Video Modules</h4>
+            <p class="sec-desc mb-0">Engaging video learning sessions designed for clarity and emotional growth.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-award"></i></div>
+            <h4>Practical Outcomes</h4>
+            <p class="sec-desc mb-0">Action-oriented learning that influences behavior, leadership, and life choices.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-people"></i></div>
+            <h4>Guided Growth</h4>
+            <p class="sec-desc mb-0">Mentored experiences, group support, and structured transformation pathways.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       BLOG
+  ========================= -->
+  <section class="section-pad" id="blog" style="background:#fff;">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-pen"></i> Blog & Insights
+        </div>
+        <h2 class="sec-title">Inspiration, reflection, and practical guidance</h2>
+        <p class="sec-desc mx-auto">
+          Share expert articles on emotional resilience, inner discipline, leadership, awareness,
+          performance, relationships, and purposeful living.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h4>Mind Clarity</h4>
+            <p class="sec-desc mb-0">How to reduce thought overload and create a stronger internal focus.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-chat-heart"></i></div>
+            <h4>Emotional Intelligence</h4>
+            <p class="sec-desc mb-0">Practical tools to improve communication, relationships, and emotional control.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mx-md-auto">
+          <div class="mastery-card reveal">
+            <div class="mastery-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4>Life Leadership</h4>
+            <p class="sec-desc mb-0">Articles that guide users from confusion to stable, conscious growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CTA SECTION
+  ========================= -->
+  <section class="section-pad" id="cta">
+    <div class="container">
+      <div class="cta-band text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-sunrise"></i> Begin the Transformation
+        </div>
+        <h3>Transformation does not begin outside. It begins inside.</h3>
+        <p class="mx-auto" style="max-width:760px;">
+          Build clarity, discipline, emotional stability, and conscious leadership through a structured
+          transformation platform that supports your personal life, relationships, career, and business.
+        </p>
+
+        <div class="hero-btns justify-content-center">
+          <a href="#" class="btn-main"><i class="bi bi-arrow-right-circle"></i> Start Your Journey</a>
+          <a href="#contact" class="btn-outline-light-custom" style="background:#fff;color:var(--primary-dark);border:1px solid var(--border);">
+            <i class="bi bi-calendar2-check"></i> Book a Consultation
+          </a>
+          <a href="#" class="btn-outline-light-custom" style="background:#fff;color:var(--primary-dark);border:1px solid var(--border);">
+            <i class="bi bi-people"></i> Join Happiness Mastery Hub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTACT / FOOTER
+  ========================= -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <div class="footer-brand reveal">
+            <img src="hapiness-logo.png" alt="Logo" class="img-fluid">
+            <h4>Happiness Mastery Hub</h4>
+            <p>
+              A structured transformation ecosystem focused on mind clarity,
+              emotional balance, inner mastery, and purposeful living.
+            </p>
+
+            <div class="social-links">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-contact-card reveal">
+            <h6>Contact Information</h6>
+            <p><strong>UAE:</strong> +971 XXXXXXXX</p>
+            <p>Email: <a href="mailto:info@elitewisdomstrategic.com">info@elitewisdomstrategic.com</a></p>
+            <br>
+            <p><strong>India:</strong> +91 XXXXXXXX</p>
+            <p>Email: <a href="mailto:india@elitewisdomstrategic.com">india@elitewisdomstrategic.com</a></p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-newsletter reveal">
+            <h6 class="footer-title">Get Career, HR & Business Insights</h6>
+            <p style="color:rgba(255,255,255,.72); line-height:1.8;">
+              Subscribe to receive valuable insights, updates, and transformational content.
+            </p>
+
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter your email address">
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <div class="mt-4">
+              <div class="footer-title mb-3">Quick Links</div>
+              <ul class="footer-list">
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Happiness Mastery Hub. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar shadow on scroll
+    const navbar = document.getElementById("mainNavbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+
+
+      function initToggle(toggleId) {
+    const toggle = document.getElementById(toggleId);
+    const buttons = toggle.querySelectorAll(".toggle-btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  }
+
+  initToggle("languageToggle");
+  initToggle("locationToggle");
+  </script>
+</body>
+</html>

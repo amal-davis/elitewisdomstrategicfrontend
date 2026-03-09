@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Mastery Hub</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --gold:#D4AF37;
+      --gold-dark:#8A6A16;
+      --gold-soft:#F7E7A1;
+      --gold-light:#FBF6E7;
+      --white:#ffffff;
+      --offwhite:#FFFDF7;
+      --text:#1A1A1A;
+      --muted:#6E6A5D;
+      --border:#EFE4C1;
+      --shadow:0 16px 40px rgba(212,175,55,.14);
+      --radius:22px;
+      --navH:84px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:var(--offwhite);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1240px;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+    .wmh-navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(255,253,247,.92);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(212,175,55,.15);
+      transition:.3s ease;
+    }
+
+    .wmh-navbar.scrolled{
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .navbar-inner{
+      min-height:var(--navH);
+    }
+
+    .brand-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-wrap img{
+      width:60px;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      line-height:1.05;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:1rem;
+      font-weight:800;
+      color:var(--text);
+      letter-spacing:.02em;
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:.78rem;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .desktop-nav .nav-link{
+      color:var(--text);
+      font-weight:600;
+      font-size:.96rem;
+      position:relative;
+      padding:0;
+    }
+
+    .desktop-nav .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-9px;
+      width:0;
+      height:2px;
+      background:var(--gold);
+      transition:.3s ease;
+      border-radius:20px;
+    }
+
+    .desktop-nav .nav-link:hover::after,
+    .desktop-nav .nav-link.active::after{
+      width:100%;
+    }
+
+    .desktop-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-left:22px;
+    }
+
+    .top-pill{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      color:var(--text);
+      font-size:.86rem;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .top-pill i{
+      color:var(--gold-dark);
+    }
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      color:#fff;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      border:none;
+      box-shadow:0 12px 28px rgba(212,175,55,.28);
+      transition:.3s ease;
+    }
+
+    .nav-cta:hover{
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    .mobile-toggle{
+      width:46px;
+      height:46px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--gold-dark);
+      font-size:1.35rem;
+    }
+
+    /* =========================
+       OFFCANVAS
+    ========================= */
+    .offcanvas.wmh-offcanvas{
+      width:310px;
+      background:#fffef8;
+      border-right:1px solid var(--border);
+    }
+
+    .wmh-offcanvas .offcanvas-header{
+      padding:20px 20px 8px;
+    }
+
+    .wmh-offcanvas .offcanvas-body{
+      padding:12px 20px 24px;
+    }
+
+    .mobile-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .mobile-brand img{
+      width:56px;
+    }
+
+    .mobile-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .mobile-links a{
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      color:var(--text);
+      font-weight:600;
+      background:#fff;
+      transition:.3s ease;
+    }
+
+    .mobile-links a:hover{
+      background:var(--gold-light);
+      color:var(--gold-dark);
+    }
+
+    .mobile-utility{
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero-section{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:calc(var(--navH) + 25px);
+      overflow:hidden;
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(14,14,14,.78) 0%, rgba(14,14,14,.56) 35%, rgba(14,14,14,.24) 100%),
+        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      z-index:0;
+    }
+
+    .hero-glow{
+      position:absolute;
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      right:-100px;
+      top:12%;
+      background:rgba(212,175,55,.22);
+      filter:blur(90px);
+      z-index:0;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:760px;
+      color:#fff;
+      padding:70px 0 80px;
+    }
+
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(10px);
+      font-size:.9rem;
+      font-weight:600;
+      margin-bottom:20px;
+    }
+
+    .hero-title{
+      font-size:clamp(2.2rem, 5vw, 4.5rem);
+      font-weight:800;
+      line-height:1.06;
+      margin-bottom:18px;
+      letter-spacing:-.03em;
+    }
+
+    .hero-title span{
+      color:#F7E7A1;
+    }
+
+    .hero-subtitle{
+      font-size:1.05rem;
+      line-height:1.9;
+      color:rgba(255,255,255,.88);
+      max-width:680px;
+      margin-bottom:30px;
+    }
+
+    .hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:32px;
+    }
+
+    .hero-points .point{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 15px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);
+      font-size:.92rem;
+      font-weight:600;
+      color:#fff;
+    }
+
+    .hero-points i{
+      color:#F7E7A1;
+    }
+
+    .hero-btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn-gold{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      border:none;
+      color:#fff;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      box-shadow:0 14px 34px rgba(212,175,55,.28);
+      transition:.3s ease;
+    }
+
+    .btn-gold:hover{
+      transform:translateY(-3px);
+      color:#fff;
+    }
+
+    .btn-glass{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      font-weight:700;
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(10px);
+      transition:.3s ease;
+    }
+
+    .btn-glass:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,.14);
+      color:#fff;
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+    .section-pad{
+      padding:90px 0;
+    }
+
+    .section-light{
+      background:#fff;
+    }
+
+    .sec-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--gold-light);
+      color:var(--gold-dark);
+      font-weight:700;
+      font-size:.86rem;
+      margin-bottom:16px;
+    }
+
+    .sec-title{
+      font-size:clamp(1.9rem, 3.8vw, 3rem);
+      font-weight:800;
+      line-height:1.15;
+      margin-bottom:16px;
+      letter-spacing:-.02em;
+    }
+
+    .sec-desc{
+      color:var(--muted);
+      line-height:1.9;
+      font-size:1.03rem;
+      max-width:760px;
+    }
+
+    .title-wrap{
+      margin-bottom:52px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+    .content-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .content-img{
+      height:100%;
+      min-height:420px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .content-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .highlight-box{
+      margin-top:24px;
+      background:linear-gradient(180deg,#fffdf4,#fff);
+      border-left:4px solid var(--gold);
+      border-radius:18px;
+      padding:20px 20px 20px 16px;
+    }
+
+    .highlight-box p{
+      margin:0;
+      font-weight:600;
+      color:var(--text);
+      line-height:1.8;
+    }
+
+    /* =========================
+       INFO CARDS
+    ========================= */
+    .info-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px 24px;
+      height:100%;
+      box-shadow:var(--shadow);
+      transition:.35s ease;
+    }
+
+    .info-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(212,175,55,.45);
+    }
+
+    .info-icon{
+      width:66px;
+      height:66px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:18px;
+      background:linear-gradient(135deg,#fff8db,#fff);
+      color:var(--gold-dark);
+      font-size:1.55rem;
+      box-shadow:0 10px 24px rgba(212,175,55,.12);
+    }
+
+    .info-card h4{
+      font-size:1.18rem;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .info-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .custom-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .custom-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--muted);
+      line-height:1.8;
+      font-weight:500;
+    }
+
+    .custom-list i{
+      color:var(--gold);
+      margin-top:5px;
+      flex-shrink:0;
+    }
+
+    /* =========================
+       FOCUS SECTION
+    ========================= */
+    .focus-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px 24px;
+      box-shadow:var(--shadow);
+      height:100%;
+      transition:.35s ease;
+    }
+
+    .focus-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .focus-no{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#fff;
+      font-weight:800;
+      margin-bottom:16px;
+      box-shadow:0 10px 20px rgba(212,175,55,.22);
+    }
+
+    .focus-card h5{
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+
+    .focus-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    /* =========================
+       EXPECT SECTION
+    ========================= */
+    .expect-box{
+      background:linear-gradient(135deg,#fffdf7,#fff8e7);
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:42px 34px;
+      box-shadow:var(--shadow);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+    .cta-band{
+      background:linear-gradient(135deg,#fff8e3,#fffef9);
+      border:1px solid var(--border);
+      border-radius:32px;
+      padding:40px 34px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-band h3{
+      font-size:clamp(1.7rem, 3vw, 2.5rem);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .cta-band p{
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:24px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer{
+      background:#11100B;
+      color:#fff;
+      padding:80px 0 24px;
+      overflow:hidden;
+    }
+
+    .footer-brand img{
+      width:72px;
+      margin-bottom:14px;
+    }
+
+    .footer-brand h4{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+      max-width:420px;
+    }
+
+    .footer-title{
+      font-size:1.02rem;
+      font-weight:800;
+      margin-bottom:18px;
+      color:#fff;
+    }
+
+    .footer-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:22px;
+      height:100%;
+    }
+
+    .footer-card p,
+    .footer-card a{
+      color:rgba(255,255,255,.76);
+      line-height:1.9;
+      margin:0;
+    }
+
+    .footer-links{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-links a{
+      color:rgba(255,255,255,.76);
+      font-weight:500;
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+    }
+
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .social-links a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      transition:.3s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--gold);
+      transform:translateY(-3px);
+      color:#fff;
+    }
+
+    .newsletter-form{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .newsletter-form input{
+      flex:1;
+      min-width:220px;
+      height:50px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      padding:0 16px;
+      background:#fff;
+    }
+
+    .newsletter-form button{
+      height:50px;
+      border:none;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#fff;
+      padding:0 20px;
+      font-weight:700;
+    }
+
+    .footer-bottom{
+      margin-top:36px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      color:rgba(255,255,255,.62);
+      font-size:.94rem;
+    }
+
+    /* =========================
+       ANIMATION
+    ========================= */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+      will-change:transform, opacity;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width:1199.98px){
+      .desktop-nav{
+        gap:18px;
+      }
+      .desktop-actions{
+        gap:8px;
+        margin-left:16px;
+      }
+      .top-pill{
+        font-size:.82rem;
+        padding:8px 12px;
+      }
+    }
+
+    @media (max-width:991.98px){
+      :root{
+        --navH:78px;
+      }
+
+      .hero-section{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:58px 0 68px;
+      }
+
+      .section-pad{
+        padding:76px 0;
+      }
+
+      .content-img{
+        min-height:320px;
+        margin-top:20px;
+      }
+    }
+
+    @media (max-width:767.98px){
+      .brand-wrap img{
+        width:50px;
+      }
+
+      .brand-text strong{
+        font-size:.92rem;
+      }
+
+      .brand-text span{
+        font-size:.72rem;
+      }
+
+      .hero-content{
+        padding:50px 0 58px;
+      }
+
+      .hero-subtitle{
+        font-size:1rem;
+        line-height:1.8;
+      }
+
+      .hero-btns{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn-gold,
+      .btn-glass{
+        width:100%;
+      }
+
+      .section-pad{
+        padding:64px 0;
+      }
+
+      .content-card,
+      .cta-band,
+      .expect-box{
+        padding:24px 20px;
+      }
+
+      .info-card,
+      .focus-card{
+        padding:24px 20px;
+      }
+
+      .footer{
+        padding:64px 0 24px;
+      }
+
+      .newsletter-form{
+        flex-direction:column;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button{
+        width:100%;
+      }
+    }
+
+    @media (max-width:575.98px){
+      .hero-points{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+
+      .sec-title{
+        font-size:1.8rem;
+      }
+    }
+
+
+    .toggle-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.toggle-label{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:1px solid var(--border);
+  color:var(--gold-dark);
+  flex-shrink:0;
+}
+
+.switch-toggle{
+  display:inline-flex;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:4px;
+  box-shadow:0 6px 16px rgba(0,0,0,.04);
+  gap:4px;
+}
+
+.toggle-btn{
+  border:none;
+  background:transparent;
+  color:var(--text);
+  font-size:.85rem;
+  font-weight:600;
+  padding:9px 16px;
+  border-radius:999px;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+
+.toggle-btn.active{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:#fff;
+  box-shadow:0 8px 20px rgba(212,175,55,.22);
+}
+
+.toggle-btn:hover{
+  color:var(--gold-dark);
+}
+
+.toggle-btn.active:hover{
+  color:#fff;
+}
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+  <header class="wmh-navbar" id="mainNavbar">
+    <div class="container">
+      <div class="navbar-inner d-flex align-items-center justify-content-between">
+
+        <!-- Left Logo -->
+        <a href="#home" class="brand-wrap">
+          <img src="wealth-master-logo-.png" alt="Wealth Mastery Hub Logo">
+          <!-- <div class="brand-text">
+            <strong>Wealth Mastery Hub</strong>
+            <span>Mindset. Discipline. Sustainable Wealth.</span>
+          </div> -->
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="d-none d-lg-flex align-items-center">
+          <nav class="desktop-nav">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#services">Services</a>
+            <a class="nav-link" href="#books">Books</a>
+            <a class="nav-link" href="#courses">Courses</a>
+            <a class="nav-link" href="#blog">Blog</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </nav>
+
+<div class="desktop-actions">
+  <!-- Language Toggle -->
+  <div class="toggle-group">
+    <!-- <div class="toggle-label">
+      <i class="bi bi-translate"></i>
+    </div> -->
+    <div class="switch-toggle" id="languageToggle">
+      <button type="button" class="toggle-btn active" data-value="english">English</button>
+      <button type="button" class="toggle-btn" data-value="malayalam">Malayalam</button>
+    </div>
+  </div>
+
+  <!-- Location Toggle -->
+  <div class="toggle-group">
+    <!-- <div class="toggle-label">
+      <i class="bi bi-geo-alt"></i>
+    </div> -->
+    <div class="switch-toggle" id="locationToggle">
+      <button type="button" class="toggle-btn active" data-value="uae">UAE</button>
+      <button type="button" class="toggle-btn" data-value="india">India</button>
+    </div>
+  </div>
+
+  <a href="#cta" class="nav-cta">Book Consultation</a>
+</div>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MOBILE OFFCANVAS
+  ========================= -->
+  <div class="offcanvas offcanvas-start wmh-offcanvas" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <div class="mobile-brand">
+        <img src="wealth-master-logo-.png" alt="Logo">
+        <!-- <div>
+          <strong class="d-block">Wealth Mastery Hub</strong>
+          <small class="text-muted">Structured Financial Growth</small>
+        </div> -->
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mobile-links">
+        <a href="#home" data-bs-dismiss="offcanvas">Home</a>
+        <a href="#about" data-bs-dismiss="offcanvas">About Us</a>
+        <a href="#services" data-bs-dismiss="offcanvas">Services</a>
+        <a href="#books" data-bs-dismiss="offcanvas">Books</a>
+        <a href="#courses" data-bs-dismiss="offcanvas">Courses</a>
+        <a href="#blog" data-bs-dismiss="offcanvas">Blog</a>
+        <a href="#contact" data-bs-dismiss="offcanvas">Contact Us</a>
+      </div>
+
+      <div class="mobile-utility">
+        <div class="top-pill justify-content-center">
+          <i class="bi bi-translate"></i>
+          English / Malayalam
+        </div>
+        <div class="top-pill justify-content-center">
+          <i class="bi bi-geo-alt"></i>
+          UAE | India
+        </div>
+        <a href="#cta" class="nav-cta text-center mt-1" data-bs-dismiss="offcanvas">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+
+    <div class="container position-relative">
+      <div class="hero-content reveal">
+        <div class="hero-tag">
+          <i class="bi bi-stars"></i>
+          Structured Financial Intelligence with Mindset Alignment
+        </div>
+
+        <h1 class="hero-title">
+          Align Your Mind. <br>
+          <span>Activate Abundance.</span><br>
+          Build Sustainable Wealth.
+        </h1>
+
+        <p class="hero-subtitle">
+          Wealth is not created only by income. It is created by clarity, discipline,
+          mindset, and structured execution. Wealth Mastery Hub is a strategic platform
+          designed to help individuals break financial limitations, remove money blocks,
+          and build stable, scalable financial growth systems.
+        </p>
+
+        <div class="hero-points">
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Financial Clarity</div>
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Wealth Discipline</div>
+          <div class="point"><i class="bi bi-check-circle-fill"></i> Sustainable Growth</div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#cta" class="btn-gold">
+            <i class="bi bi-calendar2-check"></i> Book Wealth Consultation
+          </a>
+          <a href="#contact" class="btn-glass">
+            <i class="bi bi-people"></i> Speak to Our Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+  <section class="section-pad" id="about">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="content-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-bank"></i> About Wealth Mastery Hub
+            </div>
+            <h2 class="sec-title">Financial struggles are often clarity and discipline problems, not income problems.</h2>
+            <p class="sec-desc">
+              Wealth Mastery Hub integrates financial awareness training, money psychology reprogramming,
+              wealth mindset correction, strategic income structuring, abundance alignment principles,
+              and practical wealth-building systems.
+            </p>
+
+            <div class="highlight-box">
+              <p>
+                When your thinking changes, your financial behavior changes.
+                When behavior changes, results follow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="content-img reveal">
+            <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80" alt="Financial growth and wealth planning">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       WHO THIS IS FOR
+  ========================= -->
+  <section class="section-pad section-light">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-person-check"></i> Who This Is For
+        </div>
+        <h2 class="sec-title">Designed for people who want structured financial growth</h2>
+        <p class="sec-desc mx-auto">
+          This platform is built for individuals, professionals, and business owners
+          who want to transform their relationship with money and create lasting stability.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-arrow-repeat"></i></div>
+            <h4>Financial Cycles</h4>
+            <p>Individuals stuck in repeated financial struggles and unstable money patterns.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-briefcase"></i></div>
+            <h4>Business Owners</h4>
+            <p>Entrepreneurs and business owners who need cash flow clarity and stronger systems.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-wallet2"></i></div>
+            <h4>No Savings Structure</h4>
+            <p>Professionals with income but without disciplined saving, allocation, or planning.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-exclamation-triangle"></i></div>
+            <h4>Money Fear</h4>
+            <p>People dealing with anxiety, fear, and uncertainty around money decisions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-unlock"></i></div>
+            <h4>Money Blocks</h4>
+            <p>Individuals who want to remove inner limitations and upgrade wealth beliefs.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4>Structured Growth</h4>
+            <p>Those who are ready to build long-term wealth with clarity, consistency, and discipline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       WHAT WE FOCUS ON
+  ========================= -->
+  <section class="section-pad" id="services">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-bullseye"></i> What We Focus On
+        </div>
+        <h2 class="sec-title">Five core pillars of wealth mastery</h2>
+        <p class="sec-desc mx-auto">
+          Each pillar is designed to help users create awareness, improve action,
+          and establish practical, scalable financial behaviors.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="focus-card reveal">
+            <div class="focus-no">1</div>
+            <h5>Money Mindset Reprogramming</h5>
+            <p>Identify and remove limiting beliefs, emotional resistance, and hidden patterns around wealth.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="focus-card reveal">
+            <div class="focus-no">2</div>
+            <h5>Financial Discipline Framework</h5>
+            <p>Build structured budgeting, saving, planning, and investing habits for long-term stability.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="focus-card reveal">
+            <div class="focus-no">3</div>
+            <h5>Income Expansion Strategy</h5>
+            <p>Develop additional income channels and strengthen skill-based financial growth systems.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="focus-card reveal">
+            <div class="focus-no">4</div>
+            <h5>Wealth Protection Systems</h5>
+            <p>Learn risk management, smart allocation, and protective financial strategies that reduce future instability.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="focus-card reveal">
+            <div class="focus-no">5</div>
+            <h5>Abundance Alignment</h5>
+            <p>Strengthen confidence, clarity, and calm decision-making around money, opportunities, and growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       BOOKS / COURSES STYLE SECTION
+  ========================= -->
+  <section class="section-pad section-light" id="books">
+    <div class="container">
+      <div class="row g-4 align-items-center flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="content-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-book"></i> Learning Resources
+            </div>
+            <h2 class="sec-title">Resources, books, and programs for practical wealth development</h2>
+            <p class="sec-desc">
+              The platform can support books, digital tools, structured learning modules,
+              wealth-building workbooks, and guided strategic programs for financial transformation.
+            </p>
+
+            <ul class="custom-list mt-4">
+              <li><i class="bi bi-check2-circle"></i> Wealth mindset guides</li>
+              <li><i class="bi bi-check2-circle"></i> Budgeting and financial planning frameworks</li>
+              <li><i class="bi bi-check2-circle"></i> Savings and income structuring resources</li>
+              <li><i class="bi bi-check2-circle"></i> Practical long-term wealth systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="content-img reveal">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80" alt="Wealth learning resources">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       COURSES
+  ========================= -->
+  <section class="section-pad" id="courses">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-mortarboard"></i> Courses & Programs
+        </div>
+        <h2 class="sec-title">A modern LMS-style wealth learning experience</h2>
+        <p class="sec-desc mx-auto">
+          Build this platform with structured modules, practical lessons, guided action steps,
+          and transformation journeys that help users improve their money habits and financial outcomes.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-journal-richtext"></i></div>
+            <h4>Structured Modules</h4>
+            <p>Clear step-by-step learning paths for financial awareness and wealth building.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-play-circle"></i></div>
+            <h4>Video Sessions</h4>
+            <p>Engaging sessions to simplify money psychology, systems, and financial behavior.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-bar-chart"></i></div>
+            <h4>Practical Outcomes</h4>
+            <p>Lessons that produce clarity, structure, and financially intelligent daily action.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="bi bi-people"></i></div>
+            <h4>Guided Support</h4>
+            <p>Programs supported by mentoring, accountability, and structured transformation systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       EXPECT SECTION
+  ========================= -->
+  <section class="section-pad section-light" id="blog">
+    <div class="container">
+      <div class="expect-box reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="sec-badge">
+              <i class="bi bi-graph-up"></i> What You Can Expect
+            </div>
+            <h2 class="sec-title">The expected outcomes of disciplined financial growth</h2>
+            <p class="sec-desc">
+              Wealth mastery creates more than income. It creates awareness, clarity,
+              stronger decisions, emotional calm, and long-term financial stability.
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <ul class="custom-list">
+              <li><i class="bi bi-check2-circle"></i> Clear understanding of your money behavior</li>
+              <li><i class="bi bi-check2-circle"></i> Reduction in financial stress</li>
+              <li><i class="bi bi-check2-circle"></i> Stronger saving habits</li>
+              <li><i class="bi bi-check2-circle"></i> Improved income planning</li>
+              <li><i class="bi bi-check2-circle"></i> Increased financial confidence</li>
+              <li><i class="bi bi-check2-circle"></i> Long-term wealth stability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CLOSING + CTA
+  ========================= -->
+  <section class="section-pad" id="cta">
+    <div class="container">
+      <div class="cta-band text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-stars"></i> Closing Message
+        </div>
+        <h3>Wealth is not accidental. It is intentional.</h3>
+        <p class="mx-auto" style="max-width:760px;">
+          When the mind is disciplined and action is structured, financial stability becomes natural.
+          Wealth Mastery Hub is designed to help people move from fear and confusion to clarity,
+          confidence, and sustainable financial growth.
+        </p>
+
+        <div class="hero-btns justify-content-center">
+          <a href="#" class="btn-gold"><i class="bi bi-calendar2-check"></i> Book Wealth Consultation</a>
+          <a href="#" class="btn-glass" style="background:#fff;color:var(--gold-dark);border:1px solid var(--border);">
+            <i class="bi bi-award"></i> Join Wealth Mastery Program
+          </a>
+          <a href="#contact" class="btn-glass" style="background:#fff;color:var(--gold-dark);border:1px solid var(--border);">
+            <i class="bi bi-headset"></i> Speak to Our Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <div class="footer-brand reveal">
+            <img src="wealth-master-logo-.png" alt="Wealth Mastery Hub">
+            <h4>Wealth Mastery Hub</h4>
+            <p>
+              A strategic platform for mindset alignment, financial discipline,
+              structured income growth, and long-term wealth stability.
+            </p>
+
+            <div class="social-links">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-card reveal">
+            <div class="footer-title">Contact Information</div>
+            <p><strong>UAE:</strong> +971 XXXXXXXX</p>
+            <p>Email: <a href="mailto:info@elitewisdomstrategic.com">info@elitewisdomstrategic.com</a></p>
+            <br>
+            <p><strong>India:</strong> +91 XXXXXXXX</p>
+            <p>Email: <a href="mailto:india@elitewisdomstrategic.com">india@elitewisdomstrategic.com</a></p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-card reveal">
+            <div class="footer-title">Get Career, HR & Business Insights</div>
+            <p>Subscribe to receive updates, insights, and strategic guidance.</p>
+
+            <form class="newsletter-form">
+              <input type="email" placeholder="Enter your email address">
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <div class="footer-title mt-4 mb-3">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Wealth Mastery Hub. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar shadow
+    const navbar = document.getElementById("mainNavbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+
+
+
+      function initToggle(toggleId) {
+    const toggle = document.getElementById(toggleId);
+    const buttons = toggle.querySelectorAll(".toggle-btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const selectedValue = button.getAttribute("data-value");
+        console.log(toggleId + " selected:", selectedValue);
+
+        // later you can use this value for backend / page translation / location change
+      });
+    });
+  }
+
+  initToggle("languageToggle");
+  initToggle("locationToggle");
+  </script>
+</body>
+</html>

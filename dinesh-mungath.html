@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Dinesh Mungath | Personal Portfolio</title>
+
+  <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#6d3ccf;
+      --primary-dark:#4f24a7;
+      --primary-soft:#f3edff;
+      --gold:#d4af37;
+      --gold-soft:#f7ecd0;
+      --text:#161616;
+      --muted:#6f6b78;
+      --white:#ffffff;
+      --bg:#fcfbfe;
+      --bg-soft:#f8f6fc;
+      --border:#e8e1f2;
+      --shadow:0 16px 40px rgba(70,40,140,.10);
+      --radius:24px;
+      --navH:86px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+    img{
+      max-width:100%;
+      display:block;
+      height:auto;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1240px;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+    .dm-navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(109,60,207,.10);
+      transition:.3s ease;
+    }
+
+    .dm-navbar.scrolled{
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
+    }
+
+    .navbar-inner{
+      min-height:var(--navH);
+    }
+
+    .brand-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-logo{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:1.2rem;
+      box-shadow:0 10px 22px rgba(109,60,207,.18);
+      flex-shrink:0;
+    }
+
+    .brand-text{
+      line-height:1.04;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:1rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .brand-text span{
+      display:block;
+      font-size:.78rem;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .desktop-nav .nav-link{
+      color:var(--text);
+      font-weight:600;
+      font-size:.95rem;
+      padding:0;
+      position:relative;
+    }
+
+    .desktop-nav .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      border-radius:20px;
+      background:linear-gradient(135deg,var(--primary),var(--gold));
+      transition:.3s ease;
+    }
+
+    .desktop-nav .nav-link:hover::after,
+    .desktop-nav .nav-link.active::after{
+      width:100%;
+    }
+
+    .desktop-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-left:22px;
+    }
+
+    .top-pill{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      color:var(--text);
+      font-size:.84rem;
+      font-weight:600;
+      white-space:nowrap;
+      box-shadow:0 6px 14px rgba(0,0,0,.03);
+    }
+
+    .top-pill i{
+      color:var(--primary);
+    }
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      border:none;
+      border-radius:999px;
+      color:#fff;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      box-shadow:0 12px 26px rgba(109,60,207,.22);
+      transition:.3s ease;
+    }
+
+    .nav-cta:hover{
+      transform:translateY(-2px);
+      color:#fff;
+    }
+
+    .mobile-toggle{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.35rem;
+    }
+
+    /* =========================
+       OFFCANVAS
+    ========================= */
+    .offcanvas.dm-offcanvas{
+      width:310px;
+      background:#fff;
+      border-right:1px solid var(--border);
+    }
+
+    .dm-offcanvas .offcanvas-header{
+      padding:20px 20px 8px;
+    }
+
+    .dm-offcanvas .offcanvas-body{
+      padding:12px 20px 24px;
+    }
+
+    .mobile-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .mobile-menu-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .mobile-menu-links a{
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      color:var(--text);
+      font-weight:600;
+      background:#fff;
+      transition:.3s ease;
+    }
+
+    .mobile-menu-links a:hover{
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+    }
+
+    .mobile-utility{
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    /* =========================
+       TOGGLE STYLE
+    ========================= */
+    .toggle-group{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .toggle-label{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border:1px solid var(--border);
+      color:var(--primary);
+      flex-shrink:0;
+      box-shadow:0 6px 16px rgba(109,60,207,.05);
+    }
+
+    .switch-toggle{
+      display:inline-flex;
+      align-items:center;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:4px;
+      gap:4px;
+      box-shadow:0 8px 20px rgba(109,60,207,.06);
+    }
+
+    .toggle-btn{
+      border:none;
+      background:transparent;
+      color:var(--text);
+      font-size:.83rem;
+      font-weight:600;
+      padding:9px 14px;
+      border-radius:999px;
+      transition:all .3s ease;
+      white-space:nowrap;
+    }
+
+    .toggle-btn.active{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      box-shadow:0 10px 22px rgba(109,60,207,.18);
+    }
+
+    .toggle-btn:hover{
+      color:var(--primary-dark);
+      background:var(--primary-soft);
+    }
+
+    .toggle-btn.active:hover{
+      color:#fff;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero-section{
+      position:relative;
+      min-height:100vh;
+      padding-top:calc(var(--navH) + 20px);
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at top right, rgba(109,60,207,.09), transparent 30%),
+        radial-gradient(circle at left bottom, rgba(212,175,55,.08), transparent 25%),
+        linear-gradient(180deg,#ffffff 0%, #faf8ff 100%);
+    }
+
+    .hero-shape{
+      position:absolute;
+      right:-120px;
+      top:10%;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      background:rgba(109,60,207,.10);
+      filter:blur(80px);
+      z-index:0;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:70px 0 80px;
+      max-width:720px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+
+    .hero-subline{
+      color:var(--muted);
+      font-size:1rem;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+
+    .hero-title{
+      font-size:clamp(2.2rem, 5vw, 4.7rem);
+      line-height:1.04;
+      font-weight:900;
+      letter-spacing:-.04em;
+      margin-bottom:20px;
+    }
+
+    .hero-title span{
+      background:linear-gradient(135deg,var(--primary-dark),var(--gold));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .hero-text{
+      color:var(--muted);
+      font-size:1.06rem;
+      line-height:1.9;
+      max-width:670px;
+      margin-bottom:28px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:34px;
+      max-width:700px;
+    }
+
+    .hero-point{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:14px 16px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      color:var(--text);
+      font-weight:600;
+      line-height:1.6;
+    }
+
+    .hero-point i{
+      color:var(--primary);
+      margin-top:2px;
+      flex-shrink:0;
+    }
+
+    .hero-btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn-main{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      border:none;
+      color:#fff;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      box-shadow:0 14px 30px rgba(109,60,207,.22);
+      transition:.3s ease;
+    }
+
+    .btn-main:hover{
+      color:#fff;
+      transform:translateY(-3px);
+    }
+
+    .btn-outline-custom{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      font-weight:700;
+      transition:.3s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,.04);
+    }
+
+    .btn-outline-custom:hover{
+      transform:translateY(-3px);
+      color:var(--primary-dark);
+      border-color:rgba(109,60,207,.35);
+    }
+
+    .hero-image-wrap{
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-image-card{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:34px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-image-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(109,60,207,.04), rgba(212,175,55,.03));
+      pointer-events:none;
+    }
+
+    .hero-image{
+      border-radius:26px;
+      overflow:hidden;
+      min-height:540px;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .floating-card{
+      position:absolute;
+      left:-28px;
+      bottom:36px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:16px 18px;
+      box-shadow:var(--shadow);
+      max-width:250px;
+    }
+
+    .floating-card small{
+      display:block;
+      color:var(--muted);
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .floating-card strong{
+      font-size:1rem;
+      line-height:1.5;
+      display:block;
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+    .section-pad{
+      padding:92px 0;
+    }
+
+    .section-light{
+      background:#fff;
+    }
+
+    .section-soft{
+      background:var(--bg-soft);
+    }
+
+    .sec-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-weight:700;
+      font-size:.86rem;
+      margin-bottom:16px;
+    }
+
+    .sec-title{
+      font-size:clamp(1.9rem, 3.8vw, 3rem);
+      font-weight:800;
+      line-height:1.14;
+      letter-spacing:-.02em;
+      margin-bottom:16px;
+    }
+
+    .sec-desc{
+      color:var(--muted);
+      font-size:1.03rem;
+      line-height:1.9;
+      max-width:760px;
+    }
+
+    .title-wrap{
+      margin-bottom:50px;
+    }
+
+    .content-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .content-img{
+      border-radius:28px;
+      overflow:hidden;
+      min-height:420px;
+      height:100%;
+      box-shadow:var(--shadow);
+    }
+
+    .content-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .highlight-box{
+      margin-top:24px;
+      background:linear-gradient(180deg,#fff,#faf6ff);
+      border-left:4px solid var(--primary);
+      border-radius:18px;
+      padding:20px 20px 20px 16px;
+    }
+
+    .highlight-box p{
+      margin:0;
+      font-weight:600;
+      line-height:1.8;
+      color:var(--text);
+    }
+
+    .custom-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .custom-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--muted);
+      line-height:1.8;
+      font-weight:500;
+    }
+
+    .custom-list i{
+      color:var(--primary);
+      margin-top:5px;
+      flex-shrink:0;
+    }
+
+    /* =========================
+       EXPERTISE CARDS
+    ========================= */
+    .expertise-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px 24px;
+      height:100%;
+      box-shadow:var(--shadow);
+      transition:.35s ease;
+    }
+
+    .expertise-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(109,60,207,.26);
+    }
+
+    .expertise-icon{
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--primary-soft),#fff);
+      color:var(--primary-dark);
+      font-size:1.55rem;
+      margin-bottom:18px;
+      box-shadow:0 10px 24px rgba(109,60,207,.10);
+    }
+
+    .expertise-card h4{
+      font-size:1.18rem;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .expertise-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    /* =========================
+       DISTINCT SECTION
+    ========================= */
+    .distinct-box{
+      background:linear-gradient(135deg,#fff,#faf7ff);
+      border:1px solid var(--border);
+      border-radius:32px;
+      padding:42px 34px;
+      box-shadow:var(--shadow);
+    }
+
+    .statement-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:22px;
+      height:100%;
+      box-shadow:0 12px 28px rgba(0,0,0,.04);
+    }
+
+    .statement-card strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:8px;
+      color:var(--text);
+    }
+
+    .statement-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    /* =========================
+       MANIFESTO
+    ========================= */
+    .manifesto-section{
+      position:relative;
+      background:
+        radial-gradient(circle at top right, rgba(109,60,207,.10), transparent 24%),
+        linear-gradient(135deg,#1a1329,#21153b 60%, #29184a 100%);
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .manifesto-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(10px);
+      border-radius:30px;
+      padding:38px 30px;
+    }
+
+    .manifesto-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      font-weight:700;
+      font-size:.86rem;
+      margin-bottom:16px;
+    }
+
+    .manifesto-title{
+      font-size:clamp(1.9rem, 3.8vw, 3rem);
+      font-weight:800;
+      line-height:1.14;
+      margin-bottom:18px;
+    }
+
+    .manifesto-list{
+      display:grid;
+      gap:14px;
+      margin-top:20px;
+    }
+
+    .manifesto-list .item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:rgba(255,255,255,.86);
+      line-height:1.8;
+      font-weight:500;
+    }
+
+    .manifesto-list i{
+      color:var(--gold);
+      margin-top:5px;
+      flex-shrink:0;
+    }
+
+    /* =========================
+       MISSION / VISION
+    ========================= */
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:30px 24px;
+      height:100%;
+      box-shadow:var(--shadow);
+    }
+
+    .mini-card h4{
+      font-size:1.2rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .mini-card p{
+      color:var(--muted);
+      line-height:1.9;
+      margin:0;
+    }
+
+    /* =========================
+       TAGLINE STRIP
+    ========================= */
+    .tagline-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .tagline-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:20px 18px;
+      box-shadow:var(--shadow);
+      text-align:center;
+      font-weight:700;
+      color:var(--text);
+      line-height:1.6;
+      height:100%;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+    .cta-band{
+      background:linear-gradient(135deg,#f8f4ff,#ffffff);
+      border:1px solid var(--border);
+      border-radius:32px;
+      padding:40px 34px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-band h3{
+      font-size:clamp(1.7rem, 3vw, 2.5rem);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .cta-band p{
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:24px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer{
+      background:#121019;
+      color:#fff;
+      padding:80px 0 24px;
+      overflow:hidden;
+    }
+
+    .footer-brand h4{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+      max-width:430px;
+    }
+
+    .footer-title{
+      font-size:1.03rem;
+      font-weight:800;
+      margin-bottom:18px;
+      color:#fff;
+    }
+
+    .footer-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:22px;
+      height:100%;
+    }
+
+    .footer-card p,
+    .footer-card a{
+      color:rgba(255,255,255,.76);
+      line-height:1.9;
+      margin:0;
+    }
+
+    .footer-links{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-links a{
+      color:rgba(255,255,255,.76);
+      font-weight:500;
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+    }
+
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .social-links a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      transition:.3s ease;
+    }
+
+    .social-links a:hover{
+      background:var(--primary);
+      transform:translateY(-3px);
+      color:#fff;
+    }
+
+    .newsletter-form{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .newsletter-form input{
+      flex:1;
+      min-width:220px;
+      height:50px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      padding:0 16px;
+      background:#fff;
+    }
+
+    .newsletter-form button{
+      height:50px;
+      border:none;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      padding:0 20px;
+      font-weight:700;
+    }
+
+    .footer-bottom{
+      margin-top:36px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      color:rgba(255,255,255,.62);
+      font-size:.94rem;
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+      will-change:transform, opacity;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width:1199.98px){
+      .desktop-nav{
+        gap:18px;
+      }
+
+      .desktop-actions{
+        margin-left:16px;
+        gap:8px;
+      }
+
+      .top-pill{
+        font-size:.8rem;
+        padding:8px 12px;
+      }
+
+      .toggle-btn{
+        padding:8px 11px;
+        font-size:.79rem;
+      }
+    }
+
+    @media (max-width:991.98px){
+      :root{
+        --navH:78px;
+      }
+
+      .hero-section{
+        min-height:auto;
+      }
+
+      .hero-content{
+        padding:56px 0 42px;
+      }
+
+      .hero-image{
+        min-height:420px;
+      }
+
+      .floating-card{
+        left:14px;
+        bottom:14px;
+        max-width:220px;
+      }
+
+      .section-pad{
+        padding:76px 0;
+      }
+
+      .content-img{
+        min-height:320px;
+        margin-top:20px;
+      }
+
+      .tagline-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width:767.98px){
+      .brand-logo{
+        width:46px;
+        height:46px;
+        font-size:1.08rem;
+      }
+
+      .brand-text strong{
+        font-size:.92rem;
+      }
+
+      .brand-text span{
+        font-size:.72rem;
+      }
+
+      .hero-title{
+        font-size:2.35rem;
+      }
+
+      .hero-text{
+        font-size:1rem;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .hero-btns{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn-main,
+      .btn-outline-custom{
+        width:100%;
+      }
+
+      .hero-image{
+        min-height:360px;
+      }
+
+      .floating-card{
+        position:static;
+        margin-top:14px;
+        max-width:100%;
+      }
+
+      .section-pad{
+        padding:64px 0;
+      }
+
+      .content-card,
+      .distinct-box,
+      .manifesto-card,
+      .cta-band{
+        padding:24px 20px;
+      }
+
+      .expertise-card,
+      .mini-card,
+      .statement-card{
+        padding:24px 20px;
+      }
+
+      .newsletter-form{
+        flex-direction:column;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button{
+        width:100%;
+      }
+
+      .toggle-group{
+        width:100%;
+        justify-content:space-between;
+      }
+
+      .switch-toggle{
+        flex:1;
+        justify-content:space-between;
+      }
+
+      .toggle-btn{
+        flex:1;
+        text-align:center;
+      }
+
+      .footer{
+        padding:64px 0 24px;
+      }
+    }
+
+    @media (max-width:575.98px){
+      .tagline-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .distinct-image{
+  position:relative;
+}
+
+.distinct-image img{
+  width:100%;
+  border-radius:22px;
+  object-fit:cover;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+  transition:transform .4s ease;
+}
+
+.distinct-image img:hover{
+  transform:scale(1.03);
+}
+
+.brand-logo-img{
+  height:72px;
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
+
+.mobile-brand .brand-logo-img{
+  height:58px;
+  width:auto;
+}
+
+@media (max-width: 767.98px){
+  .brand-logo-img{
+    height:62px;
+  }
+
+  .mobile-brand .brand-logo-img{
+    height:62px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+  <header class="dm-navbar" id="mainNavbar">
+    <div class="container">
+      <div class="navbar-inner d-flex align-items-center justify-content-between">
+
+       <a href="#home" class="brand-wrap">
+  <img src="dinesh-logo.png" alt="Dr. Dinesh Mungath Logo" class="brand-logo-img">
+</a>
+
+        <div class="d-none d-lg-flex align-items-center">
+          <nav class="desktop-nav">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#expertise">Services</a>
+            <a class="nav-link" href="#media">Books</a>
+            <a class="nav-link" href="#business">Courses</a>
+            <a class="nav-link" href="#manifesto">Blog</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </nav>
+
+          <div class="desktop-actions">
+            <div class="toggle-group">
+              <!-- <div class="toggle-label">
+                <i class="bi bi-translate"></i>
+              </div> -->
+              <div class="switch-toggle" id="languageToggle">
+                <button type="button" class="toggle-btn active" data-value="english">English</button>
+                <button type="button" class="toggle-btn" data-value="malayalam">Malayalam</button>
+              </div>
+            </div>
+
+            <div class="toggle-group">
+              <!-- <div class="toggle-label">
+                <i class="bi bi-geo-alt"></i>
+              </div> -->
+              <div class="switch-toggle" id="locationToggle">
+                <button type="button" class="toggle-btn active" data-value="uae">UAE</button>
+                <button type="button" class="toggle-btn" data-value="india">India</button>
+              </div>
+            </div>
+
+            <a href="#cta" class="nav-cta">Book Consultation</a>
+          </div>
+        </div>
+
+        <button class="mobile-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MOBILE MENU
+  ========================= -->
+  <div class="offcanvas offcanvas-start dm-offcanvas" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <div class="mobile-brand">
+  <img src="dinesh-logo.png" alt="Dr. Dinesh Mungath Logo" class="brand-logo-img">
+</div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mobile-menu-links">
+        <a href="#home" data-bs-dismiss="offcanvas">Home</a>
+        <a href="#about" data-bs-dismiss="offcanvas">About Us</a>
+        <a href="#expertise" data-bs-dismiss="offcanvas">Services</a>
+        <a href="#media" data-bs-dismiss="offcanvas">Books</a>
+        <a href="#business" data-bs-dismiss="offcanvas">Courses</a>
+        <a href="#manifesto" data-bs-dismiss="offcanvas">Blog</a>
+        <a href="#contact" data-bs-dismiss="offcanvas">Contact Us</a>
+      </div>
+
+      <div class="mobile-utility">
+        <div class="toggle-group">
+          <div class="toggle-label">
+            <i class="bi bi-translate"></i>
+          </div>
+          <div class="switch-toggle w-100">
+            <button type="button" class="toggle-btn active">English</button>
+            <button type="button" class="toggle-btn">Malayalam</button>
+          </div>
+        </div>
+
+        <div class="toggle-group">
+          <div class="toggle-label">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <div class="switch-toggle w-100">
+            <button type="button" class="toggle-btn active">UAE</button>
+            <button type="button" class="toggle-btn">India</button>
+          </div>
+        </div>
+
+        <a href="#cta" class="nav-cta text-center mt-1" data-bs-dismiss="offcanvas">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-shape"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-7">
+          <div class="hero-content reveal">
+            <div class="hero-badge">
+              <i class="bi bi-stars"></i>
+              Every man is the architect and creator of his own life
+            </div>
+
+            <div class="hero-subline">Where psychological precision meets spiritual depth and strategic discipline.</div>
+
+            <h1 class="hero-title">
+              <span>MASTER YOUR MIND.</span><br>
+              MASTER YOUR LIFE.
+            </h1>
+
+            <p class="hero-text">
+              Build sustainable abundance, confident leadership, and unwavering inner stability.
+              Dr. Dinesh Mungath is a UAE-based entrepreneur, author, certified life coach,
+              business coach, and spiritual healer dedicated to empowering individuals to master
+              their mind, strengthen their inner foundation, and build successful, purpose-driven lives.
+            </p>
+
+            <div class="hero-points">
+              <div class="hero-point">
+                <i class="bi bi-check-circle-fill"></i>
+                Mental clarity fuels strategic thinking.
+              </div>
+              <div class="hero-point">
+                <i class="bi bi-check-circle-fill"></i>
+                Emotional intelligence deepens influence.
+              </div>
+              <div class="hero-point">
+                <i class="bi bi-check-circle-fill"></i>
+                Spiritual awareness strengthens resilience.
+              </div>
+              <div class="hero-point">
+                <i class="bi bi-check-circle-fill"></i>
+                Disciplined action creates sustainable abundance.
+              </div>
+            </div>
+
+            <div class="hero-btns">
+              <a href="#about" class="btn-main">
+                <i class="bi bi-arrow-right-circle"></i> Discover His Work
+              </a>
+              <a href="#cta" class="btn-outline-custom">
+                <i class="bi bi-calendar2-check"></i> Book a Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-image-wrap reveal">
+            <div class="hero-image-card">
+              <div class="hero-image">
+                <!-- Replace with actual photo -->
+                <img src="dinesh-6.jpeg" class="img-fluid" alt="Dr. Dinesh Mungath">
+              </div>
+            </div>
+
+            <div class="floating-card">
+              <small>Integrated Transformation Framework</small>
+              <strong>Mindset Mastery • Spiritual Wisdom • Strategic Execution</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       POSITIONING / ABOUT
+  ========================= -->
+  <section class="section-pad" id="about">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="content-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-person-badge"></i> Positioning Statement
+            </div>
+            <h2 class="sec-title">A transformational mentor bridging inner mastery and external achievement</h2>
+            <p class="sec-desc">
+              With over two decades of international professional experience in the Gulf region,
+              Dr. Dinesh Mungath brings together corporate exposure, entrepreneurial insight,
+              psychological understanding, and spiritual wisdom into one integrated transformational framework.
+            </p>
+
+            <div class="highlight-box">
+              <p>
+                His work bridges the gap between inner development and outer achievement —
+                because true success must be built from within.
+              </p>
+            </div>
+
+            <ul class="custom-list mt-4">
+              <li><i class="bi bi-check2-circle"></i> Mind, energy, and execution aligned for conscious success</li>
+              <li><i class="bi bi-check2-circle"></i> Sustainable abundance with inner stability</li>
+              <li><i class="bi bi-check2-circle"></i> Leadership rooted in clarity and emotional intelligence</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="content-img reveal">
+            <!-- Replace with another portrait / speaking image -->
+            <img src="dinesh-2.jpeg" alt="Dr. Dinesh Mungath portrait">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       PREMIUM ABOUT
+  ========================= -->
+  <section class="section-pad section-light">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-award"></i> About Dinesh Mungath
+        </div>
+        <h2 class="sec-title">Balanced success across five essential pillars of life</h2>
+        <p class="sec-desc mx-auto">
+          His philosophy is rooted in one powerful truth: every individual is the architect
+          and creator of his or her own life. His work develops clarity of thought, emotional intelligence,
+          leadership confidence, financial consciousness, and spiritual awareness.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-2">
+          <div class="expertise-card text-center reveal">
+            <div class="expertise-icon mx-auto"><i class="bi bi-cash-coin"></i></div>
+            <h4>Wealth</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+          <div class="expertise-card text-center reveal">
+            <div class="expertise-icon mx-auto"><i class="bi bi-heart-pulse"></i></div>
+            <h4>Health</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2">
+          <div class="expertise-card text-center reveal">
+            <div class="expertise-icon mx-auto"><i class="bi bi-people"></i></div>
+            <h4>Relationships</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="expertise-card text-center reveal">
+            <div class="expertise-icon mx-auto"><i class="bi bi-brightness-high"></i></div>
+            <h4>Joy</h4>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+          <div class="expertise-card text-center reveal">
+            <div class="expertise-icon mx-auto"><i class="bi bi-stars"></i></div>
+            <h4>Spiritual Depth</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CORE EXPERTISE
+  ========================= -->
+  <section class="section-pad section-soft" id="expertise">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-diagram-3"></i> Integrated Transformation Model
+        </div>
+        <h2 class="sec-title">Core expertise that blends science, strategy, and spiritual depth</h2>
+        <p class="sec-desc mx-auto">
+          Dr. Dinesh combines neuroscience, positive psychology, leadership coaching,
+          practical manifestation frameworks, and meditation systems into one structured transformation approach.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="expertise-card reveal">
+            <div class="expertise-icon"><i class="bi bi-lightbulb"></i></div>
+            <h4>Mindset & Neuroscience</h4>
+            <p>Understanding cognitive patterns, emotional regulation, subconscious conditioning, and habit architecture.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="expertise-card reveal">
+            <div class="expertise-icon"><i class="bi bi-emoji-smile"></i></div>
+            <h4>Positive Psychology</h4>
+            <p>Developing meaning, resilience, gratitude practice, and long-term inner fulfillment.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="expertise-card reveal">
+            <div class="expertise-icon"><i class="bi bi-briefcase"></i></div>
+            <h4>Business & Leadership Coaching</h4>
+            <p>Strategic clarity, execution systems, decision intelligence, performance discipline, and wealth expansion.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="expertise-card reveal">
+            <div class="expertise-icon"><i class="bi bi-magic"></i></div>
+            <h4>Law of Attraction – Practical Application</h4>
+            <p>Alignment of thought, belief, emotion, and action to attract measurable abundance and conscious growth.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="expertise-card reveal">
+            <div class="expertise-icon"><i class="bi bi-flower1"></i></div>
+            <h4>Spiritual Intelligence & Meditation Systems</h4>
+            <p>Awareness practices, chakra balance, witness consciousness, and nervous system stabilization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       DISTINCT
+  ========================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="distinct-box reveal">
+
+      <div class="row align-items-center g-5">
+
+        <!-- Image Side -->
+        <div class="col-lg-5">
+          <div class="distinct-image">
+            <img src="dinesh-7.jpeg" alt="Dr Dinesh Mungath">
+          </div>
+        </div>
+
+        <!-- Content Side -->
+        <div class="col-lg-7">
+
+          <div class="title-wrap mb-4">
+            <div class="sec-badge">
+              <i class="bi bi-gem"></i> What Makes Him Distinct
+            </div>
+
+            <h2 class="sec-title">
+              Corporate logic + Psychological science + Spiritual alignment + Structured execution
+            </h2>
+          </div>
+
+          <div class="row g-4">
+
+            <div class="col-md-6">
+              <div class="statement-card">
+                <strong>Not temporary inspiration</strong>
+                <p>
+                  He builds structured transformation systems that create measurable internal and external change.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="statement-card">
+                <strong>Not wealth without wisdom</strong>
+                <p>
+                  He integrates conscious abundance with emotional maturity, awareness, and grounded execution.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="statement-card">
+                <strong>Not passive manifestation</strong>
+                <p>
+                  He teaches aligned action — where belief, discipline, and strategy work together.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- =========================
+       BUSINESS POSITIONING
+  ========================= -->
+  <section class="section-pad section-light" id="business">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="content-img reveal">
+            <!-- Replace with business / seminar image -->
+            <img src="dinesh-5.jpeg" alt="Business coaching">
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="content-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-bar-chart-steps"></i> Business Mastery with Inner Alignment
+            </div>
+            <h2 class="sec-title">Business growth is a reflection of mental expansion</h2>
+            <p class="sec-desc">
+              As a business coach, Dinesh works with entrepreneurs, executives, and growth-focused professionals
+              to develop strategic clarity, strengthen leadership psychology, rebuild money mindset,
+              and expand revenue through conscious scaling.
+            </p>
+
+            <ul class="custom-list mt-4">
+              <li><i class="bi bi-check2-circle"></i> Develop strategic clarity</li>
+              <li><i class="bi bi-check2-circle"></i> Strengthen leadership psychology</li>
+              <li><i class="bi bi-check2-circle"></i> Rebuild money mindset</li>
+              <li><i class="bi bi-check2-circle"></i> Increase disciplined execution</li>
+              <li><i class="bi bi-check2-circle"></i> Improve emotional decision-making</li>
+              <li><i class="bi bi-check2-circle"></i> Expand revenue through conscious scaling</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                Revenue follows clarity. Expansion follows alignment. Leadership follows self-mastery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       MANIFESTO
+  ========================= -->
+  <section class="section-pad manifesto-section" id="manifesto">
+    <div class="container">
+      <div class="manifesto-card reveal">
+        <div class="manifesto-badge">
+          <i class="bi bi-stars"></i> The Architect Manifesto
+        </div>
+
+        <h2 class="manifesto-title">Master your mind. Sharpen your strategy. Strengthen your spirit. Build consciously.</h2>
+
+        <div class="manifesto-list">
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Clarity creates direction.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Direction builds discipline.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Discipline creates destiny.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> The mind is the blueprint. Beliefs are the foundation. Action is the architecture.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Success flourishes where alignment exists.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Leadership strengthens with emotional stability.</div>
+          <div class="item"><i class="bi bi-check-circle-fill"></i> Abundance expands through disciplined intention.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       MISSION / VISION / MEDIA
+  ========================= -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="mini-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-bullseye"></i> Mission
+            </div>
+            <h4>Mission Statement</h4>
+            <p>
+              To empower individuals and leaders to consciously design their lives through mindset mastery,
+              spiritual intelligence, and strategic execution — creating sustainable abundance and inner peace.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="mini-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-eye"></i> Vision
+            </div>
+            <h4>Vision Statement</h4>
+            <p>
+              To build a global transformation ecosystem that integrates psychology, neuroscience,
+              business strategy, and spiritual wisdom — guiding individuals toward holistic success
+              and conscious leadership.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4" id="media">
+          <div class="mini-card reveal">
+            <div class="sec-badge">
+              <i class="bi bi-mic"></i> Media Bio
+            </div>
+            <h4>Executive Version</h4>
+            <p>
+              Dinesh Mungath is a UAE-based entrepreneur, author, business coach, and certified life coach
+              known for integrating mindset mastery, neuroscience principles, and spiritual intelligence
+              into structured transformation systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       TAGLINES
+  ========================= -->
+  <section class="section-pad section-soft">
+    <div class="container">
+      <div class="title-wrap text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-chat-quote"></i> Signature Taglines
+        </div>
+        <h2 class="sec-title">Authority statements that define the brand</h2>
+      </div>
+
+      <div class="tagline-grid">
+        <div class="tagline-card reveal">Architect Your Life</div>
+        <div class="tagline-card reveal">Master Your Mind. Master Your Wealth.</div>
+        <div class="tagline-card reveal">Conscious Success. Sustainable Growth.</div>
+        <div class="tagline-card reveal">Build from Within. Lead with Clarity.</div>
+        <div class="tagline-card reveal">Alignment Creates Expansion.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CTA
+  ========================= -->
+  <section class="section-pad" id="cta">
+    <div class="container">
+      <div class="cta-band text-center reveal">
+        <div class="sec-badge justify-content-center">
+          <i class="bi bi-send"></i> Take the Next Step
+        </div>
+        <h3>Every individual is capable of rebuilding identity, redesigning habits, and creating a life of wealth, meaning, and inner peace.</h3>
+        <p class="mx-auto" style="max-width:780px;">
+          The journey begins with conscious awareness and disciplined action.
+          Start the transformation through coaching, strategic guidance, and inner mastery.
+        </p>
+
+        <div class="hero-btns justify-content-center">
+          <a href="#" class="btn-main"><i class="bi bi-calendar2-check"></i> Book a Consultation</a>
+          <a href="#" class="btn-outline-custom"><i class="bi bi-envelope"></i> Connect Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <div class="footer-brand reveal">
+            <h4>Dr. Dinesh Mungath</h4>
+            <p>
+              Every individual is capable of rebuilding their identity, redesigning their habits,
+              and creating a life of wealth, meaning, and inner peace.
+            </p>
+
+            <div class="social-links">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-card reveal">
+            <div class="footer-title">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#expertise">Services</a></li>
+              <li><a href="#business">Business Coaching</a></li>
+              <li><a href="#manifesto">Manifesto</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="footer-card reveal">
+            <div class="footer-title">Stay Connected</div>
+            <p>Get insights on mindset mastery, leadership psychology, abundance, and conscious growth.</p>
+
+            <form class="newsletter-form">
+              <input type="email" class="form-control" placeholder="Enter your email address">
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Dr. Dinesh Mungath. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+    // Navbar shadow
+    const navbar = document.getElementById("mainNavbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Toggle buttons
+    function initToggle(toggleId) {
+      const toggle = document.getElementById(toggleId);
+      if (!toggle) return;
+      const buttons = toggle.querySelectorAll(".toggle-btn");
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          buttons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+        });
+      });
+    }
+
+    initToggle("languageToggle");
+    initToggle("locationToggle");
+  </script>
+</body>
+</html>
